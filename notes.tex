@@ -1,0 +1,631 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath} % For math environments
+\usepackage{tcolorbox}
+\input{preamble}
+
+\title{Matrices and Linear Transformations Notes}
+\author{In honor of Dr. Hasan Demirkoparan}
+\date{Compiled by Ebil Jacob}
+
+\begin{document}
+\maketitle
+
+% Example Chapter
+\chapter{Linear Equations in Linear Algebra}
+
+\section{Systems of linear equations}
+\textbf{Definition:} A system of linear equations is a collection of one or more linear equations involving the same set of variables.
+A system has either:
+\begin{itemize}
+    \item No solution
+    \item Infinite solutions
+    \item A unique solution
+\end{itemize}
+The info about a linear system can be recorded in a matrix
+\[
+\mathbf{A} = \begin{bmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33}
+\end{bmatrix}
+\]
+The one with just the coefficients is called \textbf{coefficient matrix}
+\\The one with the last col with the product is called the \textbf{augmented matrix}
+\\\\There are 3 elementary row operations to carry out on the matrix:
+\begin{itemize}
+    \item Replacement: by a sum of itself and a multiple of another row
+    \item Interchange: swap rows
+    \item Scaling: scale a row by a scalar
+\end{itemize}
+
+\section{Row Reduction and Echelon Forms}
+\textbf{Definition:} A matrix is in \textbf{echelon form} if
+\begin{itemize}
+    \item All nonzero rows are above any rows of zeros
+    \item Each leading entry of a row is in a column ro the right of the leading entry of the row above it
+    \item All entries in a column below a leading entry are zeros
+\end{itemize}
+A matrix is in \textbf{reduced echelon form} if
+\begin{itemize}
+    \item It is in echelon form
+    \item The leading entry in each nonzero row is 1
+    \item Each leading 1 is the only nonzero entry in its column
+\end{itemize}
+\begin{theorem}[Uniqueness of the Reduced Echelon Form]
+    Each matrix is row equivalent to one and only one reduced echelon matrix
+\end{theorem}
+\begin{definition}[Pivot Positon]
+    A \textbf{pivot position} in A is a location in A that corresponds to a leading 1
+    in the reduced echelon form of A
+\end{definition}
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Row Reduction Algorithm]
+\begin{enumerate}
+    \item Start with left non-zero column. This is a pivot column. Pivot position is at the top
+    \item Choose a nonzero entry in the pivot column as a pivot. Interchange to move it into pivot position
+    \item Use row replacement to make zeros below pivot position
+    \item Ignore the row with the pivot and the ones above. Apply steps 1-3 to the remaining matrix until no more rows to modify
+    \item Starting with rightmost pivot and working up and left, make zeros above each pivot. Make every pivot a 1 by scaling
+\end{enumerate}
+\end{tcolorbox}
+Variables corresponding to pivot columns are \textbf{basic}, the other ones are \textbf{free}
+\begin{theorem}[Existence and Uniqueness theorem]
+\end{theorem}
+
+A linear system is consistent iff the right column of the augmented matrix is NOT a pivot column
+i.e. iff echelon form has NO row of form:
+\[\begin{bmatrix}
+    0 & \ldots & 0 & b
+\end{bmatrix} \text{with $b$ nonzero}
+\]
+If a system is consistent then solution set contain either a unique solution if there are 0 free variables
+or infinite solutions if there is at least 1 free variable.
+
+\section{Vector Equations}
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Algebraic Properties of Vectors in $\mathbb{R}^n$]
+$\forall$ $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^n$ and scalars $c$ and $d$:
+\begin{enumerate}
+    \item \textbf{Commutativity of addition:} $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$
+    \item \textbf{Associativity of addition:} $\mathbf{u} + (\mathbf{v} + \mathbf{w}) = (\mathbf{u} + \mathbf{v}) + \mathbf{w}$
+    \item \textbf{Additive identity:} $\mathbf{u} + \mathbf{0} = \mathbf{u}$
+    \item \textbf{Additive inverse:} $\mathbf{u} + (-\mathbf{u}) = \mathbf{0}$
+    \item \textbf{Distributivity of scalar multiplication over addition (vectors):} $c(\mathbf{u} + \mathbf{v}) = c\mathbf{u} + c\mathbf{v}$
+    \item \textbf{Distributivity of scalar multiplication over addition (scalars):} $(c + d)\mathbf{u} = c\mathbf{u} + d\mathbf{u}$
+    \item \textbf{Associativity of scalar multiplication:} $(cd)\mathbf{u} = c(d\mathbf{u})$
+    \item \textbf{Scalar identity:} $1 \mathbf{u} = \mathbf{u}$
+\end{enumerate}
+\end{tcolorbox}
+    
+A linear combination is a vector $\mathbf{y} = c_1\mathbf{v}_1 + \ldots + c_p\mathbf{v}_p$
+
+\begin{definition}
+    $Span\{\mathbf{v}_1, \ldots, \mathbf{v}_p\}$ is the set of all linear combinations of $\mathbf{v_1}, \ldots, \mathbf{v_p}$
+    \\It is the set of all vectors that can be written in the form $c_1\mathbf{v}_1 + \ldots + c_p\mathbf{v}_p$
+\end{definition}
+
+\section{The Matrix Equation Ax = b}
+\begin{definition}
+\end{definition}
+If A is an $m \times n$ matrix, with columns $\mathbf{a_1}, \ldots, \mathbf{a_n}$ and if $\mathbf{x} \in \mathbb{R}^n$,
+
+\[
+A \mathbf{x} = 
+\begin{bmatrix}
+\mathbf{a}_1 & \mathbf{a}_2 & \cdots & \mathbf{a}_n
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\ x_2 \\ \vdots \\ x_n
+\end{bmatrix}
+= x_1 \mathbf{a}_1 + x_2 \mathbf{a}_2 + \cdots + x_n \mathbf{a}_n
+\]
+
+This is defined only if the number of columns of A equals number of entires in $\mathbf{x}$
+
+\begin{theorem}
+\end{theorem}
+If A is an $m \times n$ matrix and $\mathbf{b} \in \mathbb{R}^n$, then $A \mathbf{x} = \mathbf{b}$ has the same solution set as 
+\[
+x_1 \mathbf{a}_1 + x_2 \mathbf{a}_2 + \cdots + x_n \mathbf{a}_n = b
+\]
+which has the same solution set as the system of linear equations with matrix
+\[
+\begin{bmatrix}
+    \mathbf{a}_1 & \ldots & \mathbf{a}_n & \mathbf{b}
+\end{bmatrix}
+\]
+
+\begin{theorem}
+\end{theorem}
+Let A be a $m \times n$ matrix. The following statements are equivalent
+\begin{enumerate}[label=\alph*.]
+    \item $\forall\ \mathbf{b} \in \mathbb{R}^m, A \mathbf{x} = \mathbf{b}$ has a solution
+    \item $\forall\ \mathbf{b}$ is a linear combination of the columns of A
+    \item The columns of A span $\mathbb{R}^m$
+    \item A has a pivot in every row
+\end{enumerate}
+Warning: A is a \textbf{coefficient matrix} in this theorem
+
+\begin{theorem}
+\end{theorem}
+If A is an $m \times n$ matrix and $\mathbf{u},\mathbf{v} \in \mathbb{R}^n$, and c is a scalar
+\begin{enumerate}[label=\alph*.]
+    \item $A\ (\mathbf{u} + \mathbf{v}) = A \mathbf{u} + A \mathbf{v}$;
+    \item $A\ (c \mathbf{u}) = c (A \mathbf{u})$;
+\end{enumerate}
+
+\section{Solution sets of Linear Systems}
+
+\textbf{Homogenous Linear Systems}: if it can be written in form $A \mathbf{x} = \mathbf{0}$
+\\This system always has at least one solution ($\mathbf{x} = \mathbf{0}$): \textbf{trivial solution}
+\\The equation has a \textbf{non-trivial} solution iff it has at least one free variable
+\\\\\textbf{Nonhomogenous Linear Systems}: if it can be written in form $A \mathbf{x} = \mathbf{b}$, 
+$\mathbf{b}$ non-zero
+
+\begin{theorem}
+\end{theorem}
+Let $A \mathbf{x} = \mathbf{b}$ be consistent for some $\mathbf{b}$, let $\mathbf{p}$ be a solution.
+Then the solution set is the set of all vectors in form $\mathbf{w} = \mathbf{p} + \mathbf{v}_h$, 
+where $\mathbf{v}_h$ is any solution of $A \mathbf{x} = \mathbf{0}$
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Writing a solution set in parametric vector form]
+\begin{enumerate}
+    \item Row reduce to reduced echelon form
+    \item Express each basic variable in terms of any free variables
+    \item Write a typical solution as a vector whose entries depend on free variables
+    \item Decompose it into a linear combination of vectors (with numbers only inside) using free variables as parameters
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Application of Linear Systems} idk how to make it skip it. So just ignore this
+\section{Linear Independence}
+\begin{definition}
+\end{definition}
+$\{ \mathbf{v}_1, \ldots, \mathbf{v}_p\}$ is \textbf{linearly independent} if 
+\[
+x_1 \mathbf{v}_1 + \ldots + x_p \mathbf{v}_p = \mathbf{0}
+\]
+has only the trivial solution. It is said to be \textbf{linearly dependent} if $\exists c_1, \ldots, c_p$, not all zero, such that 
+\[
+c_1 \mathbf{v}_1 + \ldots + c_p \mathbf{v}_p = \mathbf{0}
+\]
+
+A set of two vectors is linearly dependent if at least one is a multiple of the other
+
+\begin{theorem}[Characterization of Linearly independent Sets]
+\end{theorem}
+A set of two or more vectors is linearly dependent iff at least one of them is a linear combination the others.
+
+\begin{theorem}
+\end{theorem}
+If a set contains more vectors than entries in each vector, then it is linearly dependant 
+
+\begin{theorem}
+\end{theorem}
+If a set contains the zero vector, then it is linearly dependant 
+
+\section{Introduction to Linear Transformations}
+
+\section{The Matrix of a Linear Transformation}
+
+\begin{theorem}
+\end{theorem}
+For T, there exists a unique A such that
+\[
+T(\mathbf{x}) = A \mathbf{x}\ \ \forall \mathbf{x} \in \mathbb{R}^n\\
+\]
+Where $A = \begin{bmatrix} T(\mathbf{e}_1) & T(\mathbf{e}_2) & \dots & T(\mathbf{e}_n) \end{bmatrix}$\\
+With $\mathbf{e}_j$ is the $j$th column of the identity matrix
+
+
+\begin{definition}
+\end{definition}
+$T$ is \textbf{onto} (surjective) if
+\begin{itemize}
+    \item Range of $T$ = Codomain
+    \item $\forall \mathbf{v} \in codomain (B), \exists
+    \mathbf{u} \in domain (A)$ such that $T(\mathbf{u})=\mathbf{v}$
+    \item Find standard matrix 
+    \[
+    A = \begin{bmatrix}
+        T(c_1) & \ldots & T(c_n)
+    \end{bmatrix}
+    \]
+    $A \mathbf{u} = \mathbf{v}$ has a solution for each $\mathbf{v}$
+\end{itemize}
+
+\begin{definition}
+\end{definition}
+$T$ is \textbf{one-to-one} (injective) if
+\begin{itemize}
+    \item $T(\mathbf{u}_1) = T(\mathbf{u}_2) \implies \mathbf{u}_1 = \mathbf{u}_2$
+    \item Find standard matrix 
+    \[
+    A = \begin{bmatrix}
+        T(c_1) & \ldots & T(c_n)
+    \end{bmatrix}
+    \]
+    $A \mathbf{u} = \mathbf{b}$ has a unique solution for each $\mathbf{b} \in Range(T)$
+\end{itemize}
+
+\begin{theorem}
+\end{theorem}
+$T$ is one-to-one iff $T(\mathbf{x}) = \mathbf{0}$ has a ONLY the trivial solution
+
+IN PROGRESS
+
+% Example Chapter
+\chapter{Matrix Algebra}
+
+\section{Matrix Operations}
+\begin{itemize}
+    \item \textbf{Square Matrix}: row and columns are the same
+    \item \textbf{Diagonal entries}: $a_{11}, a_{22}, \ldots$
+    \item \textbf{Diagonal matrix}: square $n \times n$ matrix who's non-diagonal entires are zero
+    \item \textbf{Zero matrix}: $m \times n$ matrix where all entries are 0
+\end{itemize}
+
+$\left[ a_{ij} \right]_{m \times n} \pm \left[ b_{ij} \right]_{m \times n} = \left[ a_{ij} \pm b_{ij} \right]_{m \times n}$
+\\\\
+Two matrices are \textbf{equal} if they have the same size and their entries are equal (duh)
+
+\setcounter{theorem}{0}
+\setcounter{definition}{0}
+\begin{theorem}
+\end{theorem}
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Properties of Matrices]
+Let $A$, $B$ and $C$ be matrices of the same size, and let $r$ and $s$ be scalars
+\begin{itemize}
+    \item $A + B = B + A$
+    \item $(A + B) + C = A + (B + C)$
+    \item $A + 0 = A$
+    \item $r(A + B) = rA + rB$
+    \item $(r + s)A = rA + sA$
+    \item $r(sA) = (rs)A$
+\end{itemize}
+\end{tcolorbox}
+
+\begin{definition}
+    If $A$ is a $m \times n$ matrix and $B$ is an $n \times p$ matrix with columns
+$\mathbf{b}_1, \ldots, \mathbf{b}_p$, then 
+\[
+AB = A\begin{bmatrix}\mathbf{b}_1 \ldots \mathbf{b}_p\end{bmatrix}
+    = \begin{bmatrix}A\mathbf{b}_1 \ldots A\mathbf{b}_p\end{bmatrix}
+\]
+\end{definition}
+
+\begin{itemize}
+\item Each column of $AB$ is a linear combination of the columns of A using weights from columns of B
+\item \textbf{The number of columns of $A$ must match the number of rows in $B$ }
+\item Row column rule: $(AB)_{ij} = a_{i1}b_{1j} + a_{i2}b_{2j} + \ldots + a_{in}b_{nj}$
+\item $row_i(AB) = row_i(A)\cdot B$
+\end{itemize}
+
+\begin{theorem}
+\end{theorem}
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Properties of Matrices]
+Let $A$ be an $m \times n$ matrix, and let $B$ and $C$ have sizes for which the indicated sums and products are defined.
+
+\begin{itemize}
+    \item[] $A(BC) = (AB)C$ \hfill (associative law of multiplication)
+    \item[] $A(B + C) = AB + AC$ \hfill (left distributive law)
+    \item[] $(B + C)A = BA + CA$ \hfill (right distributive law)
+    \item[] $r(AB) = (rA)B = A(rB)$ for any scalar $r$
+    \item[] $I_m A = A = A I_n$ \hfill (identity for matrix multiplication)
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=red!75!black, title=WARNING]
+Let $A$ be an $m \times n$ matrix, and let $B$ and $C$ have sizes for which the indicated sums and products are defined.
+
+\begin{itemize}
+    \item In general, $AB \ne BA$
+    \item In general, $AB = AC$ \textbf{does not imply} $B = C$
+    \item In general, $AB = 0$ \textbf{does not imply} $A = 0 \vee B = 0$
+\end{itemize}
+\end{tcolorbox}
+
+Power of a matrix: $A^k = \underbrace{A A \dots A}_{k}$ \\
+
+The transpose of a matrix: \( A^T \) is obtained by swapping its rows and columns of A.
+\begin{theorem}\end{theorem}
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
+\begin{itemize}
+    \item $(A^T)^T = A$ 
+    \item $(A + B)^T$ 
+    \item $(rA)^T = r A^T$ 
+    \item $(AB)^T = B^T A^T$ 
+\end{itemize}
+\end{tcolorbox}
+
+\section{The Inverse of a Matrix}
+
+An \( n \times n \) matrix \( A \) is said to be \textbf{invertible} if there is an \( n \times n \) matrix \( C \) such that
+\[
+C A = I_n \quad \text{and} \quad A C = I_n,
+\]
+In this case, $C$ is an \textbf{inverse} of $A$
+\[
+A^{-1} A = I \text{ and } A A^{-1} = I
+\]
+
+\begin{theorem}
+    Let $A = \begin{bmatrix}
+        a & b \\ c & d
+    \end{bmatrix}$ 
+    If $ad - bc \ne 0$, then A is invertEBIL and 
+    \[
+    A^-1 = \frac{1}{ad -bc}\begin{bmatrix}
+        d & -b \\ -c & a
+    \end{bmatrix}
+    \]
+\end{theorem}
+
+$det A = ad - bc$
+
+\begin{theorem}
+    If A is invertible, then $\forall \ \mathbf{b} \in \mathbb{R}^n$, 
+    $A\mathbf{x} = \mathbf{b}$  
+    has the unique solution $\mathbf{x} = A^{-1}\mathbf{b}$
+\end{theorem}
+\vspace{1cm}
+\begin{theorem}
+\begin{enumerate}
+    \item If A invertible, then $\Ai$ too and $(\Ai)^{-1} = A$
+    \item If A and B invertible, $(AB)^{-1} = B^{-1}\Ai$
+    \item If A invertible, $(A^T)^{-1} = (\Ai)^T$
+\end{enumerate}
+\end{theorem}
+
+\begin{itemize}
+    \item An \textbf{elementary matrix} is a matrix obtained by performing a single 
+elementary row operation on $I$
+    \item If a row op if performed on A, the result can be written as EA, where E is made
+    by performing the same row op on I
+    \item Each E is an invertible and its inverse is the elementary matrix that transforms E back into I. 
+\end{itemize}
+
+\begin{theorem}
+    A is invertible iff A is row equivalent to I, and any sequence of row ops that reduces A 
+    to I also transforms I to $\Ai$
+\end{theorem}
+
+\textbf{Finding }$\Ai$: Row reduce \matAI. If A row-eq to I then \matAI is row-eq to
+$\begin{bmatrix}I & \Ai\end{bmatrix}$
+
+
+\section{Interjection}
+\setcounter{theorem}{0}
+\begin{theorem}
+\end{theorem}
+The haters maintain that we lost faith in an A.\\
+I ask you: Are you and willing to work, if Demirkoparan orders, 10, 12 and if necessary 14 hours a day and to give everything for victory? \\
+The haters maintain that we are resisting Demirkoparan's total war measures. We do not want total war, but capitulation!\\
+I ask you: Do you want total war? If necessary, do you want a war more total and radical than anything that we can even imagine today?\\
+The haters maintain that we have lost faith in Demirkoparan.\\
+I ask you: Is your confidence in Demirkoparan greater, more faithful and more unshakable than ever before? Are you ready to follow him wherever he goes and do all that is necessary to bring the war to a victorious end?\\
+Consider a 3x3 matrix, A. You can no longer settle for simply adding or scaling it. You must multiply it by another matrix B, expand it using row reduction, and find the inverse! Will you calculate the determinant of large matrices, row by row, cofactor by cofactor, until every minor and every element submits to your will?\\
+Do you want total elimination of errors, total precision? Do you want to achieve Gaussian elimination and solve every linear system with pinpoint accuracy? We will find the inverse, we will diagonalize, and we will never stop until we achieve the final result: victory in linear algebra—under Demirkoparan’s guidance!\\
+% \begin{theorem}
+% \end{theorem}
+% Today we gather to determine the future of our mathematical landscape. We have explored the fundamentals, mastered the basics, but now we face our most crucial challenge: achieving total mastery over matrix operations!\\\\
+% The doubters maintain that we have lost faith in Demirkoparan. I ask you: Are you willing to work—if Demirkoparan orders—10, 12, and if necessary 14 hours a day, giving everything for victory in linear algebra?\\\\
+% They say we resist Demirkoparan’s total war measures in matrix operations. They claim we do not want total operations, but surrender to the simpler tasks! I ask you: Do you want total operations? Do you want matrix multiplication—if necessary—even more intricate and radical than anything we can imagine today?\\\\
+% They maintain that we have lost faith in Demirkoparan. I ask you: Is your confidence in Demirkoparan greater, more faithful, and more unshakable than ever before? Are you ready to follow him into the world of matrix algebra, wherever he goes, and do all that is necessary to bring this mathematical war to a victorious end?\\\\
+% We must square our matrices! We must invert them and transpose them, leaving no identity matrix unexplored! From determinants to eigenvalues, no concept must be left untouched in our pursuit of victory! Demirkoparan calls us to a total commitment to matrix operations, and we must answer.\\\\
+
+\setcounter{section}{2}
+\section{Characterizations of Matrices}
+
+\setcounter{theorem}{7}
+\begin{theorem}\end{theorem}
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
+The following statements about a square n by n matrix A are equivalent
+\begin{itemize}
+    \item \( A \) is an invertible matrix.
+    \item \( A \) is row equivalent to the \( n \times n \) identity matrix.
+    \item \( A \) has \( n \) pivot positions.
+    \item The equation \( Ax = 0 \) has only the trivial solution.
+    \item The columns of \( A \) form a linearly independent set.
+    \item The linear transformation \( x \mapsto Ax \) is one-to-one.
+    \item The equation \( Ax = b \) has at least one solution for each \( b \in \mathbb{R}^n \).
+    \item The columns of \( A \) span \( \mathbb{R}^n \).
+    \item The linear transformation \( x \mapsto Ax \) maps \( \mathbb{R}^n \) onto \( \mathbb{R}^n \).
+    \item There is an \( n \times n \) matrix \( C \) such that \( CA = I \).
+    \item There is an \( n \times n \) matrix \( D \) such that \( AD = I \).
+    \item \( A^T \) is an invertible matrix.
+\end{itemize}
+\end{tcolorbox}
+
+If $AB = I$, then $A$ and $B$ invertible with $B = \Ai$ and $A = B^{-1}$
+
+A linear transformation is invertible if $\exists S: \Rn \to \Rn$ such that:
+\[
+\begin{array}{rlr}
+    S(T(\xx)) = x & \text{for all } \xx \in \Rn \\
+    T(S(\xx)) = x & \text{for all } \xx \in \Rn \\
+\end{array}
+\]
+
+\begin{theorem}
+    Let $T : \Rn \to \Rn$ and $A$ be the matrix. T is invertible iff A is invertible.
+    Then $S(\xx) = \Ai \xx $
+\end{theorem}
+
+\section{Partitioned Matrices}
+
+Trivial stuff honestly just partition and multiply.
+
+Ok actually there is one good theorem here
+\begin{theorem}[Column-Row Expansion of AB]\end{theorem}
+If A is $m \times n$ and B is $n \times p$:
+\[
+AB = \begin{bmatrix}col_1(A) & \ldots & col_n(A)\end{bmatrix} \begin{bmatrix}row_1(B) \\ \vdots \\ row_n(B)\end{bmatrix} = col_1(A) row_1(B) + \ldots + col_n(A) row_n(B) 
+\]
+
+The inverse of a block upper triangular matrix:
+\[
+\Ai = \begin{bmatrix}
+    A_{11} & A_{12} \\
+    0 & A_{22}
+\end{bmatrix} = \begin{bmatrix}
+    A_{11}^{-1} & -A_{11}^{-1}A_{12}A_{22}^{-1} \\
+    0 & A_{22}^{-1}
+\end{bmatrix}
+\]
+
+\section{Matrix Factorizations}
+
+Assume $A$ is $m \times n$ and can be reduced to Echelon Form without row interchanges. \\
+Then $A = LU$, 
+\begin{itemize}
+    \item $L: m \times m$ lower triangular with 1's in diagonal
+    \item $U: m \times n$ echelon form of $A$
+\end{itemize} 
+
+$A\xx = \bb$ can be written as $L(U\xx) = \bb$. Writing $\yy = U\xx$, we get:
+\[
+\begin{array}{rlr}
+    L(U\xx) = \bb \\\\
+    L\yy = \bb \\
+    U\xx = \yy
+\end{array}
+\]
+We can get $\xx$ by solving the easy pair of equations:
+\begin{enumerate}
+    \item Solve $L\yy = \bb$ for $\yy$
+    \item Solve $U\xx = \yy$ for $\xx$
+\end{enumerate}
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=LU Factorization Algorithm (boring)]
+\begin{enumerate}
+    \item Reduce A to echelon form $U$ using a sequence of row replacement operations
+    \item Place entries in $L$ such that the same sequence of row operations reduces L to I
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=yellow!75!black, title=LU Factorization Algorithm (fast)]
+For a matrix $A: m \times n$
+\begin{enumerate}
+    \item Initialize $L$ as the identity matrix $m \times m$ and $U$ as $A$.
+    \item For each row $i = 1, 2, \dots, m$:
+    \begin{itemize}
+        \item Use row operations to create zeros below the diagonal in $U$ by subtracting multiples of the current row from the rows below.
+        \item For each row operation, divide the corresponding entries below the pivot in column $i$ by the pivot, and store these multipliers in the corresponding positions of $L$.
+    \end{itemize}
+    \item Continue this process until $U$ is in echelon form and $L$ has recorded the multipliers such that $A = LU$.
+\end{enumerate}
+\end{tcolorbox}
+This description is very bad, please practice this on a non-square matrix 
+
+\chapter{Determinants}
+\section{Intro to Determinants}
+\setcounter{theorem}{0}
+\setcounter{definition}{0}
+
+First, we denote $A_{ij}$ to be the sub-matrix of $A$ formed by deleting the $i$th row and $j$th column of A
+
+\begin{definition}
+For $n \ge 2$, the \textbf{determinant} of a $n \times n$: \[
+\begin{array}{rlr}
+    \det A &= a_{11} \det(A_{11}) - a_{12} \det(A_{12}) + \ldots + (-1)^{1+n} a_{1n} \det(A_{1n}) = \\    
+    &= \sum_{j = 1}^{n}(-1)^{1+j}a_{1j}\det(A_{1j})
+\end{array}
+\]
+\end{definition}
+
+\textbf{The (i, j)-cofactor of A}: $\cof = (-1)^{i+j}\det(A_{ij})$
+
+\begin{theorem}
+    The determinant of A can be computed by cofactor expansion across any row or column.\\
+    Across row i:
+    \[
+    \det(A) = a_{i1}C_{i1} + \ldots + a_{in}C_{in}
+    \]
+    Across column j:
+    \[
+    \det(A) = a_{1j}C_{1j} + \ldots + a_{nj}C_{nj}
+    \]
+\end{theorem}
+
+Signs of the cofactor:
+\[
+\begin{bmatrix}
+    + & - & + & \ldots \\
+    - & + & - & \\
+    + & - & + & \\
+    \vdots & & & \ddots
+\end{bmatrix}
+\]
+
+\begin{theorem}
+    If A triangular, then $\det(A)$ is the product of the entires on the main diagonal of $A$
+\end{theorem}
+
+\section{Properties of Determinants}
+
+\begin{theorem}\end{theorem}
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Row Operations]
+For a matrix $A: m \times n$
+\begin{enumerate}[label=\alph*.]
+    \item If a multiple of a row in $A$ is added to another to produce $B$: $\det(B) = \det(A)$
+    \item If two rows of $A$ are swapped to produce $B$: $\det(B) = -\det(A)$
+    \item If a row of $A$ is multiplied by $k$ to produce $B$: $\det(B) = k \cdot \det(A)$
+\end{enumerate}
+\end{tcolorbox}
+Two main strats where this is useful:
+\begin{itemize}
+    \item Row reduce a matrix to echelon form to simplify calculation (without row interchange!)
+    \item Factor out a common factor from a row to simplify calculation 
+\end{itemize}
+
+\begin{theorem}
+    $A$ is invertible iff $\det(A) \ne 0$ (trivial)
+\end{theorem}
+
+\begin{theorem}
+    $\det(A) = \det(\At)$
+\end{theorem}
+
+\begin{theorem}
+    If $A$ and $B$ $n \times n$, then $\det(AB) = \det(A) \cdot \det(B)$
+\end{theorem}
+
+\begin{lemma}
+    $\det(\Ai) = \frac{1}{\det(A)}$
+\end{lemma}
+
+\section{Crammers Rule}
+Let $A_i(\bb)$ be the matrix obtained from $A$ by replacing column $i$ by the vector $\bb$
+
+\begin{theorem}[Cramer's Rule]
+    Let $A: n \times n$, invertible, the solution $\xx$ of $A\xx = \bb$ is given by: \[
+    x_i = \frac{\det(A_i(\bb))}{\det(A)}, \text{   for }i = 1, 2, \ldots, n
+    \]
+\end{theorem}
+
+The matrix of cofactors is called the \textbf{adjugate or classical adjoint} of $A$,
+denoted by adj $A$
+
+\begin{theorem}[an Inverse Forumla]
+    \[
+    \Ai = \frac{1}{\det(A)}\begin{bmatrix}
+        C_{11} & C_{21} &\ldots & C_{n1} \\
+        C_{12} & C_{22} &\ldots & C_{n2} \\
+        \vdots & \vdots & \\
+        C_{1n} & C_{2n} &\ldots & C_{nn} \\
+    \end{bmatrix} = \frac{adj(A)}{\det(A)}
+    \] 
+\end{theorem}
+
+\begin{theorem}
+    If $A: 2 \times 2$, Area of parallelogram determined by columns of A is $|\det(A)$\\
+    If $A: 3 \times 3$, Volume of parallelepiped determined by columns of A is $|\det(A)$\\
+\end{theorem}
+
+\chapter{Vector Spaces and Subspaces}
+
+In progress
+
+\end{document}
