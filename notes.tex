@@ -5,9 +5,8 @@
 \usepackage{tcolorbox}
 \input{preamble}
 
-\title{Matrices and Linear Transformations Notes}
-\author{In honor of Dr. Hasan Demirkoparan}
-\date{Compiled by Ebil Jacob}
+\title{21-241 Matrices and Linear Transformations Notes}
+\date{Compiled by Salman Hajizada}
 
 \begin{document}
 \maketitle
@@ -206,6 +205,28 @@ If a set contains the zero vector, then it is linearly dependant
 
 \section{Introduction to Linear Transformations}
 
+A \textbf{transformation} $T$ from $\Rn$ to $\Rm$ is a rule that assigns each vector $\xx$ in 
+$\Rn$ to a vector $\Tx$ in $\Rm$
+\begin{itemize}
+    \item Domain: $\Rn$
+    \item Codomain: $\Rm$
+    \item Range: set of all images $\Tx$
+\end{itemize}
+
+\begin{definition}
+    $T$ is linear iff \begin{itemize}
+        \item $T(\uu + \vv) = T(\uu) + T(\vv)$
+        \item $T(c\uu) = c T(\uu)$
+    \end{itemize}
+\end{definition}
+
+If $T$ is linear then:
+\begin{itemize}
+    \item $T(\0) = \0$
+    \item $T(c\uu + d\vv) = cT(\uu) + dT(\vv)$
+    \item $T(c_1\vv_1 + \ldots + c_p\vv_p) = T(c_1\vv_1) + \ldots + T(c_p\vv_p)$
+\end{itemize}
+
 \section{The Matrix of a Linear Transformation}
 
 \begin{theorem}
@@ -223,7 +244,7 @@ With $\mathbf{e}_j$ is the $j$th column of the identity matrix
 $T$ is \textbf{onto} (surjective) if
 \begin{itemize}
     \item Range of $T$ = Codomain
-    \item $\forall \mathbf{v} \in codomain (B), \exists
+    \item $\forall \ \mathbf{v} \in codomain (B), \exists \ 
     \mathbf{u} \in domain (A)$ such that $T(\mathbf{u})=\mathbf{v}$
     \item Find standard matrix 
     \[
@@ -231,12 +252,12 @@ $T$ is \textbf{onto} (surjective) if
         T(c_1) & \ldots & T(c_n)
     \end{bmatrix}
     \]
-    $A \mathbf{u} = \mathbf{v}$ has a solution for each $\mathbf{v}$
+    Onto if $A \mathbf{u} = \mathbf{v}$ has a solution for each $\mathbf{v}$ in range
 \end{itemize}
 
 \begin{definition}
 \end{definition}
-$T$ is \textbf{one-to-one} (injective) if
+$T$ is \textbf{one-to-one} (injective)if
 \begin{itemize}
     \item $T(\mathbf{u}_1) = T(\mathbf{u}_2) \implies \mathbf{u}_1 = \mathbf{u}_2$
     \item Find standard matrix 
@@ -249,12 +270,17 @@ $T$ is \textbf{one-to-one} (injective) if
 \end{itemize}
 
 \begin{theorem}
+    $T$ is one-to-one iff $T(\mathbf{x}) = \mathbf{0}$ has a ONLY the trivial solution
 \end{theorem}
-$T$ is one-to-one iff $T(\mathbf{x}) = \mathbf{0}$ has a ONLY the trivial solution
 
-IN PROGRESS
+\begin{theorem}
+    Let $T: \Rn \to \Rm$, let $A$ be standard matrix for $T$. Then 
+    \begin{itemize}
+        \item $T$ maps $\Rn$ to $\Rm$ iff the columns of $A$ span $\Rm$
+        \item $T$ is one-to-one iff the columns of $A$ are linearly independent
+    \end{itemize}
+\end{theorem}
 
-% Example Chapter
 \chapter{Matrix Algebra}
 
 \section{Matrix Operations}
@@ -393,27 +419,6 @@ elementary row operation on $I$
 
 \textbf{Finding }$\Ai$: Row reduce \matAI. If A row-eq to I then \matAI is row-eq to
 $\begin{bmatrix}I & \Ai\end{bmatrix}$
-
-
-\section{Interjection}
-\setcounter{theorem}{0}
-\begin{theorem}
-\end{theorem}
-The haters maintain that we lost faith in an A.\\
-I ask you: Are you and willing to work, if Demirkoparan orders, 10, 12 and if necessary 14 hours a day and to give everything for victory? \\
-The haters maintain that we are resisting Demirkoparan's total war measures. We do not want total war, but capitulation!\\
-I ask you: Do you want total war? If necessary, do you want a war more total and radical than anything that we can even imagine today?\\
-The haters maintain that we have lost faith in Demirkoparan.\\
-I ask you: Is your confidence in Demirkoparan greater, more faithful and more unshakable than ever before? Are you ready to follow him wherever he goes and do all that is necessary to bring the war to a victorious end?\\
-Consider a 3x3 matrix, A. You can no longer settle for simply adding or scaling it. You must multiply it by another matrix B, expand it using row reduction, and find the inverse! Will you calculate the determinant of large matrices, row by row, cofactor by cofactor, until every minor and every element submits to your will?\\
-Do you want total elimination of errors, total precision? Do you want to achieve Gaussian elimination and solve every linear system with pinpoint accuracy? We will find the inverse, we will diagonalize, and we will never stop until we achieve the final result: victory in linear algebra—under Demirkoparan’s guidance!\\
-% \begin{theorem}
-% \end{theorem}
-% Today we gather to determine the future of our mathematical landscape. We have explored the fundamentals, mastered the basics, but now we face our most crucial challenge: achieving total mastery over matrix operations!\\\\
-% The doubters maintain that we have lost faith in Demirkoparan. I ask you: Are you willing to work—if Demirkoparan orders—10, 12, and if necessary 14 hours a day, giving everything for victory in linear algebra?\\\\
-% They say we resist Demirkoparan’s total war measures in matrix operations. They claim we do not want total operations, but surrender to the simpler tasks! I ask you: Do you want total operations? Do you want matrix multiplication—if necessary—even more intricate and radical than anything we can imagine today?\\\\
-% They maintain that we have lost faith in Demirkoparan. I ask you: Is your confidence in Demirkoparan greater, more faithful, and more unshakable than ever before? Are you ready to follow him into the world of matrix algebra, wherever he goes, and do all that is necessary to bring this mathematical war to a victorious end?\\\\
-% We must square our matrices! We must invert them and transpose them, leaving no identity matrix unexplored! From determinants to eigenvalues, no concept must be left untouched in our pursuit of victory! Demirkoparan calls us to a total commitment to matrix operations, and we must answer.\\\\
 
 \setcounter{section}{2}
 \section{Characterizations of Matrices}
@@ -626,6 +631,37 @@ denoted by adj $A$
 
 \chapter{Vector Spaces and Subspaces}
 
-In progress
+\section{Vector Spaces and Subspaces}
 
+\begin{definition}
+    A \textbf{vector space} is a nonempty set $V$ of objects called vectors, on which there are defined two operations:
+    \textit{addition} and \textit{scalar multiplication}. The axioms below must hold for all $\uu, \ww, \vv \ \in V$
+\end{definition}
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
+\begin{enumerate}
+    \item $\uu + \vv \ \in V$ (Closure under addition)
+    \item $\uu + \vv = \vv + \uu$
+    \item $(\uu + \vv) + \ww = \uu + (\vv + \ww)$
+    \item $\0 \ \in V$, such that $\uu + \0 = \uu$
+    \item $\forall \ \uu \ \in V, \ \exists \ -\uu \ \in V$ such that $\uu + (-\uu) = \0$
+    \item $c \uu \ \in V$
+    \item $c (\uu + \vv) = c \uu + c \vv$
+    \item $(c + d) \uu = c \uu + d \uu$
+    \item $c (d \uu) = (c d) \uu$
+    \item $1 \uu = \uu$
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{definition}
+    A \textbf{subspace} of a space $V$ is a subset $H$ of $V$ that:
+    \begin{itemize}
+        \item The zero vector of $V$ is in $H$
+        \item $H$ is closed under vector addition: $\uu + \vv \ \in H$ for all $\uu, \vv \ \in H$
+        \item $H$ is closed under scalar multiplication: $c\uu \ \in H$ for all scalars $c$ and vectors $\uu\ \in H$
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    If $\vv_1, \ldots, \vv_p$ are in a vector space $V$, then $Span {\vv_1, \ldots, \vv_p}$ is a subspace of $V$
+\end{theorem}
 \end{document}
