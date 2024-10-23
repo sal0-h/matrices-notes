@@ -96,7 +96,7 @@ $\forall$ $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^n$ and scalars $c$ 
     \item \textbf{Scalar identity:} $1 \mathbf{u} = \mathbf{u}$
 \end{enumerate}
 \end{tcolorbox}
-    
+
 A linear combination is a vector $\mathbf{y} = c_1\mathbf{v}_1 + \ldots + c_p\mathbf{v}_p$
 
 \begin{definition}
@@ -110,7 +110,7 @@ A linear combination is a vector $\mathbf{y} = c_1\mathbf{v}_1 + \ldots + c_p\ma
 If A is an $m \times n$ matrix, with columns $\mathbf{a_1}, \ldots, \mathbf{a_n}$ and if $\mathbf{x} \in \mathbb{R}^n$,
 
 \[
-A \mathbf{x} = 
+A \mathbf{x} =
 \begin{bmatrix}
 \mathbf{a}_1 & \mathbf{a}_2 & \cdots & \mathbf{a}_n
 \end{bmatrix}
@@ -124,7 +124,7 @@ This is defined only if the number of columns of A equals number of entires in $
 
 \begin{theorem}
 \end{theorem}
-If A is an $m \times n$ matrix and $\mathbf{b} \in \mathbb{R}^n$, then $A \mathbf{x} = \mathbf{b}$ has the same solution set as 
+If A is an $m \times n$ matrix and $\mathbf{b} \in \mathbb{R}^n$, then $A \mathbf{x} = \mathbf{b}$ has the same solution set as
 \[
 x_1 \mathbf{a}_1 + x_2 \mathbf{a}_2 + \cdots + x_n \mathbf{a}_n = b
 \]
@@ -159,13 +159,13 @@ If A is an $m \times n$ matrix and $\mathbf{u},\mathbf{v} \in \mathbb{R}^n$, and
 \textbf{Homogenous Linear Systems}: if it can be written in form $A \mathbf{x} = \mathbf{0}$
 \\This system always has at least one solution ($\mathbf{x} = \mathbf{0}$): \textbf{trivial solution}
 \\The equation has a \textbf{non-trivial} solution iff it has at least one free variable
-\\\\\textbf{Nonhomogenous Linear Systems}: if it can be written in form $A \mathbf{x} = \mathbf{b}$, 
+\\\\\textbf{Nonhomogenous Linear Systems}: if it can be written in form $A \mathbf{x} = \mathbf{b}$,
 $\mathbf{b}$ non-zero
 
 \begin{theorem}
 \end{theorem}
 Let $A \mathbf{x} = \mathbf{b}$ be consistent for some $\mathbf{b}$, let $\mathbf{p}$ be a solution.
-Then the solution set is the set of all vectors in form $\mathbf{w} = \mathbf{p} + \mathbf{v}_h$, 
+Then the solution set is the set of all vectors in form $\mathbf{w} = \mathbf{p} + \mathbf{v}_h$,
 where $\mathbf{v}_h$ is any solution of $A \mathbf{x} = \mathbf{0}$
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Writing a solution set in parametric vector form]
@@ -181,11 +181,11 @@ where $\mathbf{v}_h$ is any solution of $A \mathbf{x} = \mathbf{0}$
 \section{Linear Independence}
 \begin{definition}
 \end{definition}
-$\{ \mathbf{v}_1, \ldots, \mathbf{v}_p\}$ is \textbf{linearly independent} if 
+$\{ \mathbf{v}_1, \ldots, \mathbf{v}_p\}$ is \textbf{linearly independent} if
 \[
 x_1 \mathbf{v}_1 + \ldots + x_p \mathbf{v}_p = \mathbf{0}
 \]
-has only the trivial solution. It is said to be \textbf{linearly dependent} if $\exists c_1, \ldots, c_p$, not all zero, such that 
+has only the trivial solution. It is said to be \textbf{linearly dependent} if $\exists c_1, \ldots, c_p$, not all zero, such that
 \[
 c_1 \mathbf{v}_1 + \ldots + c_p \mathbf{v}_p = \mathbf{0}
 \]
@@ -198,15 +198,15 @@ A set of two or more vectors is linearly dependent iff at least one of them is a
 
 \begin{theorem}
 \end{theorem}
-If a set contains more vectors than entries in each vector, then it is linearly dependant 
+If a set contains more vectors than entries in each vector, then it is linearly dependant
 
 \begin{theorem}
 \end{theorem}
-If a set contains the zero vector, then it is linearly dependant 
+If a set contains the zero vector, then it is linearly dependant
 
 \section{Introduction to Linear Transformations}
 
-A \textbf{transformation} $T$ from $\Rn$ to $\Rm$ is a rule that assigns each vector $\xx$ in 
+A \textbf{transformation} $T$ from $\Rn$ to $\Rm$ is a rule that assigns each vector $\xx$ in
 $\Rn$ to a vector $\Tx$ in $\Rm$
 \begin{itemize}
     \item Domain: $\Rn$
@@ -245,15 +245,15 @@ With $\mathbf{e}_j$ is the $j$th column of the identity matrix
 $T$ is \textbf{onto} (surjective) if
 \begin{itemize}
     \item Range of $T$ = Codomain
-    \item $\forall \ \mathbf{v} \in codomain (B), \exists \ 
+    \item $\forall \ \mathbf{v} \in codomain (B), \exists \
     \mathbf{u} \in domain (A)$ such that $T(\mathbf{u})=\mathbf{v}$
-    \item Find standard matrix 
+    \item Find standard matrix
     \[
     A = \begin{bmatrix}
         T(c_1) & \ldots & T(c_n)
     \end{bmatrix}
     \]
-    Onto if $A \mathbf{u} = \mathbf{v}$ has a solution for each $\mathbf{v}$ in range
+    Onto if $A \mathbf{u} = \mathbf{v}$ has a solution for each $\mathbf{v} \in Codomain$
 \end{itemize}
 
 \begin{definition}
@@ -261,13 +261,17 @@ $T$ is \textbf{onto} (surjective) if
 $T$ is \textbf{one-to-one} (injective)if
 \begin{itemize}
     \item $T(\mathbf{u}_1) = T(\mathbf{u}_2) \implies \mathbf{u}_1 = \mathbf{u}_2$
-    \item Find standard matrix 
+    \item Find standard matrix
     \[
     A = \begin{bmatrix}
         T(c_1) & \ldots & T(c_n)
     \end{bmatrix}
     \]
     $A \mathbf{u} = \mathbf{b}$ has a unique solution for each $\mathbf{b} \in Range(T)$
+
+    Or
+
+    $A \mathbf{u} = \mathbf{b}$ has at most one solution for each $\mathbf{b} \in Codomain$ | (can have no solution)
 \end{itemize}
 
 \begin{theorem}
@@ -275,7 +279,7 @@ $T$ is \textbf{one-to-one} (injective)if
 \end{theorem}
 
 \begin{theorem}
-    Let $T: \Rn \to \Rm$, let $A$ be standard matrix for $T$. Then 
+    Let $T: \Rn \to \Rm$, let $A$ be standard matrix for $T$. Then
     \begin{itemize}
         \item $T$ maps $\Rn$ to $\Rm$ iff the columns of $A$ span $\Rm$
         \item $T$ is one-to-one iff the columns of $A$ are linearly independent
@@ -314,7 +318,7 @@ Let $A$, $B$ and $C$ be matrices of the same size, and let $r$ and $s$ be scalar
 
 \begin{definition}
     If $A$ is a $m \times n$ matrix and $B$ is an $n \times p$ matrix with columns
-$\mathbf{b}_1, \ldots, \mathbf{b}_p$, then 
+$\mathbf{b}_1, \ldots, \mathbf{b}_p$, then
 \[
 AB = A\begin{bmatrix}\mathbf{b}_1 \ldots \mathbf{b}_p\end{bmatrix}
     = \begin{bmatrix}A\mathbf{b}_1 \ldots A\mathbf{b}_p\end{bmatrix}
@@ -359,10 +363,10 @@ The transpose of a matrix: \( A^T \) is obtained by swapping its rows and column
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
 \begin{itemize}
-    \item $(A^T)^T = A$ 
-    \item $(A + B)^T = \At + B^T$ 
-    \item $(rA)^T = r A^T$ 
-    \item $(AB)^T = B^T A^T$ 
+    \item $(A^T)^T = A$
+    \item $(A + B)^T = \At + B^T$
+    \item $(rA)^T = r A^T$
+    \item $(AB)^T = B^T A^T$
 \end{itemize}
 \end{tcolorbox}
 
@@ -380,8 +384,8 @@ A^{-1} A = I \text{ and } A A^{-1} = I
 \begin{theorem}
     Let $A = \begin{bmatrix}
         a & b \\ c & d
-    \end{bmatrix}$ 
-    If $ad - bc \ne 0$, then A is invertEBIL and 
+    \end{bmatrix}$
+    If $ad - bc \ne 0$, then A is invertEBIL and
     \[
     A^-1 = \frac{1}{ad -bc}\begin{bmatrix}
         d & -b \\ -c & a
@@ -392,8 +396,8 @@ A^{-1} A = I \text{ and } A A^{-1} = I
 $det A = ad - bc$
 
 \begin{theorem}
-    If A is invertible, then $\forall \ \mathbf{b} \in \mathbb{R}^n$, 
-    $A\mathbf{x} = \mathbf{b}$  
+    If A is invertible, then $\forall \ \mathbf{b} \in \mathbb{R}^n$,
+    $A\mathbf{x} = \mathbf{b}$
     has the unique solution $\mathbf{x} = A^{-1}\mathbf{b}$
 \end{theorem}
 \vspace{1cm}
@@ -406,15 +410,15 @@ $det A = ad - bc$
 \end{theorem}
 
 \begin{itemize}
-    \item An \textbf{elementary matrix} is a matrix obtained by performing a single 
+    \item An \textbf{elementary matrix} is a matrix obtained by performing a single
 elementary row operation on $I$
     \item If a row op if performed on A, the result can be written as EA, where E is made
     by performing the same row op on I
-    \item Each E is an invertible and its inverse is the elementary matrix that transforms E back into I. 
+    \item Each E is an invertible and its inverse is the elementary matrix that transforms E back into I.
 \end{itemize}
 
 \begin{theorem}
-    A is invertible iff A is row equivalent to I, and any sequence of row ops that reduces A 
+    A is invertible iff A is row equivalent to I, and any sequence of row ops that reduces A
     to I also transforms I to $\Ai$
 \end{theorem}
 
@@ -467,7 +471,7 @@ Ok actually there is one good theorem here
 \begin{theorem}[Column-Row Expansion of AB]\end{theorem}
 If A is $m \times n$ and B is $n \times p$:
 \[
-AB = \begin{bmatrix}col_1(A) & \ldots & col_n(A)\end{bmatrix} \begin{bmatrix}row_1(B) \\ \vdots \\ row_n(B)\end{bmatrix} = col_1(A) row_1(B) + \ldots + col_n(A) row_n(B) 
+AB = \begin{bmatrix}col_1(A) & \ldots & col_n(A)\end{bmatrix} \begin{bmatrix}row_1(B) \\ \vdots \\ row_n(B)\end{bmatrix} = col_1(A) row_1(B) + \ldots + col_n(A) row_n(B)
 \]
 
 The inverse of a block upper triangular matrix:
@@ -484,11 +488,11 @@ The inverse of a block upper triangular matrix:
 \section{Matrix Factorizations}
 
 Assume $A$ is $m \times n$ and can be reduced to Echelon Form without row interchanges. \\
-Then $A = LU$, 
+Then $A = LU$,
 \begin{itemize}
     \item $L: m \times m$ lower triangular with 1's in diagonal
     \item $U: m \times n$ echelon form of $A$
-\end{itemize} 
+\end{itemize}
 
 $A\xx = \bb$ can be written as $L(U\xx) = \bb$. Writing $\yy = U\xx$, we get:
 \[
@@ -523,7 +527,7 @@ For a matrix $A: m \times n$
     \item Continue this process until $U$ is in echelon form and $L$ has recorded the multipliers such that $A = LU$.
 \end{enumerate}
 \end{tcolorbox}
-This description is very bad, please practice this on a non-square matrix 
+This description is very bad, please practice this on a non-square matrix
 
 \chapter{Determinants}
 \section{Intro to Determinants}
@@ -535,7 +539,7 @@ First, we denote $A_{ij}$ to be the sub-matrix of $A$ formed by deleting the $i$
 \begin{definition}
 For $n \ge 2$, the \textbf{determinant} of a $n \times n$: \[
 \begin{array}{rlr}
-    \det A &= a_{11} \det(A_{11}) - a_{12} \det(A_{12}) + \ldots + (-1)^{1+n} a_{1n} \det(A_{1n}) = \\    
+    \det A &= a_{11} \det(A_{11}) - a_{12} \det(A_{12}) + \ldots + (-1)^{1+n} a_{1n} \det(A_{1n}) = \\
     &= \sum_{j = 1}^{n}(-1)^{1+j}a_{1j}\det(A_{1j})
 \end{array}
 \]
@@ -583,7 +587,7 @@ For a matrix $A: m \times n$
 Two main strats where this is useful:
 \begin{itemize}
     \item Row reduce a matrix to echelon form to simplify calculation (without row interchange!)
-    \item Factor out a common factor from a row to simplify calculation 
+    \item Factor out a common factor from a row to simplify calculation
 \end{itemize}
 
 \begin{theorem}
@@ -622,7 +626,7 @@ denoted by adj $A$
         \vdots & \vdots & \\
         C_{1n} & C_{2n} &\ldots & C_{nn} \\
     \end{bmatrix} = \frac{adj(A)}{\det(A)}
-    \] 
+    \]
 \end{theorem}
 
 \begin{theorem}
