@@ -83,90 +83,90 @@ If a system is consistent then solution set contain either a unique solution if 
 or infinite solutions if there is at least 1 free variable.
 
 \section{Vector Equations}
-\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Algebraic Properties of Vectors in $\mathbb{R}^n$]
-$\forall$ $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^n$ and scalars $c$ and $d$:
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Algebraic Properties of Vectors in $\Rn$]
+$\forall$ $\uu, \vv, \ww \in \Rn$ and scalars $c$ and $d$:
 \begin{enumerate}
-    \item \textbf{Commutativity of addition:} $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$
-    \item \textbf{Associativity of addition:} $\mathbf{u} + (\mathbf{v} + \mathbf{w}) = (\mathbf{u} + \mathbf{v}) + \mathbf{w}$
-    \item \textbf{Additive identity:} $\mathbf{u} + \mathbf{0} = \mathbf{u}$
-    \item \textbf{Additive inverse:} $\mathbf{u} + (-\mathbf{u}) = \mathbf{0}$
-    \item \textbf{Distributivity of scalar multiplication over addition (vectors):} $c(\mathbf{u} + \mathbf{v}) = c\mathbf{u} + c\mathbf{v}$
-    \item \textbf{Distributivity of scalar multiplication over addition (scalars):} $(c + d)\mathbf{u} = c\mathbf{u} + d\mathbf{u}$
-    \item \textbf{Associativity of scalar multiplication:} $(cd)\mathbf{u} = c(d\mathbf{u})$
-    \item \textbf{Scalar identity:} $1 \mathbf{u} = \mathbf{u}$
+    \item \textbf{Commutativity of addition:} $\uu + \vv = \vv + \uu$
+    \item \textbf{Associativity of addition:} $\uu + (\vv + \ww) = (\uu + \vv) + \ww$
+    \item \textbf{Additive identity:} $\uu + \0 = \uu$
+    \item \textbf{Additive inverse:} $\uu + (-\uu) = \0$
+    \item \textbf{Distributivity of scalar multiplication over addition (vectors):} $c(\uu + \vv) = c\uu + c\vv$
+    \item \textbf{Distributivity of scalar multiplication over addition (scalars):} $(c + d)\uu = c\uu + d\uu$
+    \item \textbf{Associativity of scalar multiplication:} $(cd)\uu = c(d\uu)$
+    \item \textbf{Scalar identity:} $1 \uu = \uu$
 \end{enumerate}
 \end{tcolorbox}
     
-A linear combination is a vector $\mathbf{y} = c_1\mathbf{v}_1 + \ldots + c_p\mathbf{v}_p$
+A linear combination is a vector $\yy = c_1\vv_1 + \ldots + c_p\vv_p$
 
 \begin{definition}
-    $Span\{\mathbf{v}_1, \ldots, \mathbf{v}_p\}$ is the set of all linear combinations of $\mathbf{v_1}, \ldots, \mathbf{v_p}$
-    \\It is the set of all vectors that can be written in the form $c_1\mathbf{v}_1 + \ldots + c_p\mathbf{v}_p$
+    $Span\{\vv_1, \ldots, \vv_p\}$ is the set of all linear combinations of $\mathbf{v_1}, \ldots, \mathbf{v_p}$
+    \\It is the set of all vectors that can be written in the form $c_1\vv_1 + \ldots + c_p\vv_p$
 \end{definition}
 
 \section{The Matrix Equation Ax = b}
 \begin{definition}
 \end{definition}
-If A is an $m \times n$ matrix, with columns $\mathbf{a_1}, \ldots, \mathbf{a_n}$ and if $\mathbf{x} \in \mathbb{R}^n$,
+If A is an $\mxn$ matrix, with columns $\mathbf{a_1}, \ldots, \mathbf{a_n}$ and if $\xx \in \Rn$,
 
 \[
-A \mathbf{x} = 
+A \xx = 
 \begin{bmatrix}
-\mathbf{a}_1 & \mathbf{a}_2 & \cdots & \mathbf{a}_n
+\aaa_1 & \aaa_2 & \cdots & \aaa_n
 \end{bmatrix}
 \begin{bmatrix}
 x_1 \\ x_2 \\ \vdots \\ x_n
 \end{bmatrix}
-= x_1 \mathbf{a}_1 + x_2 \mathbf{a}_2 + \cdots + x_n \mathbf{a}_n
+= x_1 \aaa_1 + x_2 \aaa_2 + \cdots + x_n \aaa_n
 \]
 
-This is defined only if the number of columns of A equals number of entires in $\mathbf{x}$
+This is defined only if the number of columns of A equals number of entires in $\xx$
 
 \begin{theorem}
 \end{theorem}
-If A is an $m \times n$ matrix and $\mathbf{b} \in \mathbb{R}^n$, then $A \mathbf{x} = \mathbf{b}$ has the same solution set as 
+If A is an $\mxn$ matrix and $\bb \in \Rn$, then $A \xx = \bb$ has the same solution set as 
 \[
-x_1 \mathbf{a}_1 + x_2 \mathbf{a}_2 + \cdots + x_n \mathbf{a}_n = b
+x_1 \aaa_1 + x_2 \aaa_2 + \cdots + x_n \aaa_n = b
 \]
 which has the same solution set as the system of linear equations with matrix
 \[
 \begin{bmatrix}
-    \mathbf{a}_1 & \ldots & \mathbf{a}_n & \mathbf{b}
+    \aaa_1 & \ldots & \aaa_n & \bb
 \end{bmatrix}
 \]
 
 \begin{theorem}
 \end{theorem}
-Let A be a $m \times n$ matrix. The following statements are equivalent
+Let A be a $\mxn$ matrix. The following statements are equivalent
 \begin{enumerate}[label=\alph*.]
-    \item $\forall\ \mathbf{b} \in \mathbb{R}^m, A \mathbf{x} = \mathbf{b}$ has a solution
-    \item $\forall\ \mathbf{b}$ is a linear combination of the columns of A
-    \item The columns of A span $\mathbb{R}^m$
+    \item $\forall\ \bb \in \Rm, A \xx = \bb$ has a solution
+    \item $\forall\ \bb$ is a linear combination of the columns of A
+    \item The columns of A span $\Rm$
     \item A has a pivot in every row
 \end{enumerate}
 Warning: A is a \textbf{coefficient matrix} in this theorem
 
 \begin{theorem}
 \end{theorem}
-If A is an $m \times n$ matrix and $\mathbf{u},\mathbf{v} \in \mathbb{R}^n$, and c is a scalar
+If A is an $\mxn$ matrix and $\uu,\vv \in \Rn$, and c is a scalar
 \begin{enumerate}[label=\alph*.]
-    \item $A\ (\mathbf{u} + \mathbf{v}) = A \mathbf{u} + A \mathbf{v}$;
-    \item $A\ (c \mathbf{u}) = c (A \mathbf{u})$;
+    \item $A\ (\uu + \vv) = A \uu + A \vv$;
+    \item $A\ (c \uu) = c (A \uu)$;
 \end{enumerate}
 
 \section{Solution sets of Linear Systems}
 
-\textbf{Homogenous Linear Systems}: if it can be written in form $A \mathbf{x} = \mathbf{0}$
-\\This system always has at least one solution ($\mathbf{x} = \mathbf{0}$): \textbf{trivial solution}
+\textbf{Homogenous Linear Systems}: if it can be written in form $A \xx = \0$
+\\This system always has at least one solution ($\xx = \0$): \textbf{trivial solution}
 \\The equation has a \textbf{non-trivial} solution iff it has at least one free variable
-\\\\\textbf{Nonhomogenous Linear Systems}: if it can be written in form $A \mathbf{x} = \mathbf{b}$, 
-$\mathbf{b}$ non-zero
+\\\\\textbf{Non-homogenous Linear Systems}: if it can be written in form $A \xx = \bb$, 
+$\bb$ non-zero
 
 \begin{theorem}
 \end{theorem}
-Let $A \mathbf{x} = \mathbf{b}$ be consistent for some $\mathbf{b}$, let $\mathbf{p}$ be a solution.
-Then the solution set is the set of all vectors in form $\mathbf{w} = \mathbf{p} + \mathbf{v}_h$, 
-where $\mathbf{v}_h$ is any solution of $A \mathbf{x} = \mathbf{0}$
+Let $A \xx = \bb$ be consistent for some $\bb$, let $\mathbf{p}$ be a solution.
+Then the solution set is the set of all vectors in form $\ww = \mathbf{p} + \vv_h$, 
+where $\vv_h$ is any solution of $A \xx = \0$
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Writing a solution set in parametric vector form]
 \begin{enumerate}
@@ -181,13 +181,13 @@ where $\mathbf{v}_h$ is any solution of $A \mathbf{x} = \mathbf{0}$
 \section{Linear Independence}
 \begin{definition}
 \end{definition}
-$\{ \mathbf{v}_1, \ldots, \mathbf{v}_p\}$ is \textbf{linearly independent} if 
+$\{ \vv_1, \ldots, \vv_p\}$ is \textbf{linearly independent} if 
 \[
-x_1 \mathbf{v}_1 + \ldots + x_p \mathbf{v}_p = \mathbf{0}
+x_1 \vv_1 + \ldots + x_p \vv_p = \0
 \]
 has only the trivial solution. It is said to be \textbf{linearly dependent} if $\exists c_1, \ldots, c_p$, not all zero, such that 
 \[
-c_1 \mathbf{v}_1 + \ldots + c_p \mathbf{v}_p = \mathbf{0}
+c_1 \vv_1 + \ldots + c_p \vv_p = \0
 \]
 
 A set of two vectors is linearly dependent if at least one is a multiple of the other
@@ -210,7 +210,7 @@ A \textbf{transformation} $T$ from $\Rn$ to $\Rm$ is a rule that assigns each ve
 $\Rn$ to a vector $\Tx$ in $\Rm$
 \begin{itemize}
     \item Domain: $\Rn$
-    \item Codomain: $\Rm$
+    \item Co-domain: $\Rm$
     \item Range: set of all images $\Tx$
 \end{itemize}
 
@@ -234,7 +234,7 @@ If $T$ is linear then:
 \end{theorem}
 For T, there exists a unique A such that
 \[
-T(\mathbf{x}) = A \mathbf{x}\ \ \forall \mathbf{x} \in \mathbb{R}^n\\
+\Tx = A \xx\ \ \forall \xx \in \Rn\\
 \]
 Where $A = \begin{bmatrix} T(\mathbf{e}_1) & T(\mathbf{e}_2) & \dots & T(\mathbf{e}_n) \end{bmatrix}$\\
 With $\mathbf{e}_j$ is the $j$th column of the identity matrix
@@ -244,34 +244,34 @@ With $\mathbf{e}_j$ is the $j$th column of the identity matrix
 \end{definition}
 $T$ is \textbf{onto} (surjective) if
 \begin{itemize}
-    \item Range of $T$ = Codomain
-    \item $\forall \ \mathbf{v} \in codomain (B), \exists \ 
-    \mathbf{u} \in domain (A)$ such that $T(\mathbf{u})=\mathbf{v}$
+    \item Range of $T$ = Co-domain
+    \item $\forall \ \vv \in codomain (B), \exists \ 
+    \uu \in domain (A)$ such that $T(\uu)=\vv$
     \item Find standard matrix 
     \[
     A = \begin{bmatrix}
         T(c_1) & \ldots & T(c_n)
     \end{bmatrix}
     \]
-    Onto if $A \mathbf{u} = \mathbf{v}$ has a solution for each $\mathbf{v}$ in range
+    Onto if $A \uu = \vv$ has a solution for each $\vv$ in range
 \end{itemize}
 
 \begin{definition}
 \end{definition}
 $T$ is \textbf{one-to-one} (injective)if
 \begin{itemize}
-    \item $T(\mathbf{u}_1) = T(\mathbf{u}_2) \implies \mathbf{u}_1 = \mathbf{u}_2$
+    \item $T(\uu_1) = T(\uu_2) \implies \uu_1 = \uu_2$
     \item Find standard matrix 
     \[
     A = \begin{bmatrix}
         T(c_1) & \ldots & T(c_n)
     \end{bmatrix}
     \]
-    $A \mathbf{u} = \mathbf{b}$ has a unique solution for each $\mathbf{b} \in Range(T)$
+    $A \uu = \bb$ has a unique solution for each $\bb \in Range(T)$
 \end{itemize}
 
 \begin{theorem}
-    $T$ is one-to-one iff $T(\mathbf{x}) = \mathbf{0}$ has a ONLY the trivial solution
+    $T$ is one-to-one iff $\Tx = \0$ has a ONLY the trivial solution
 \end{theorem}
 
 \begin{theorem}
@@ -289,10 +289,10 @@ $T$ is \textbf{one-to-one} (injective)if
     \item \textbf{Square Matrix}: row and columns are the same
     \item \textbf{Diagonal entries}: $a_{11}, a_{22}, \ldots$
     \item \textbf{Diagonal matrix}: square $n \times n$ matrix who's non-diagonal entires are zero
-    \item \textbf{Zero matrix}: $m \times n$ matrix where all entries are 0
+    \item \textbf{Zero matrix}: $\mxn$ matrix where all entries are 0
 \end{itemize}
 
-$\left[ a_{ij} \right]_{m \times n} \pm \left[ b_{ij} \right]_{m \times n} = \left[ a_{ij} \pm b_{ij} \right]_{m \times n}$
+$[a_{ij}]_{\mxn} \pm [b_{ij}]_{\mxn} = [a_{ij} \pm b_{ij}]_{\mxn}$
 \\\\
 Two matrices are \textbf{equal} if they have the same size and their entries are equal (duh)
 
@@ -313,11 +313,11 @@ Let $A$, $B$ and $C$ be matrices of the same size, and let $r$ and $s$ be scalar
 \end{tcolorbox}
 
 \begin{definition}
-    If $A$ is a $m \times n$ matrix and $B$ is an $n \times p$ matrix with columns
-$\mathbf{b}_1, \ldots, \mathbf{b}_p$, then 
+    If $A$ is a $\mxn$ matrix and $B$ is an $n \times p$ matrix with columns
+$\bb_1, \ldots, \bb_p$, then 
 \[
-AB = A\begin{bmatrix}\mathbf{b}_1 \ldots \mathbf{b}_p\end{bmatrix}
-    = \begin{bmatrix}A\mathbf{b}_1 \ldots A\mathbf{b}_p\end{bmatrix}
+AB = A\begin{bmatrix}\bb_1 \ldots \bb_p\end{bmatrix}
+    = \begin{bmatrix}A\bb_1 \ldots A\bb_p\end{bmatrix}
 \]
 \end{definition}
 
@@ -331,7 +331,7 @@ AB = A\begin{bmatrix}\mathbf{b}_1 \ldots \mathbf{b}_p\end{bmatrix}
 \begin{theorem}
 \end{theorem}
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Properties of Matrices]
-Let $A$ be an $m \times n$ matrix, and let $B$ and $C$ have sizes for which the indicated sums and products are defined.
+Let $A$ be an $\mxn$ matrix, and let $B$ and $C$ have sizes for which the indicated sums and products are defined.
 
 \begin{itemize}
     \item[] $A(BC) = (AB)C$ \hfill (associative law of multiplication)
@@ -343,7 +343,7 @@ Let $A$ be an $m \times n$ matrix, and let $B$ and $C$ have sizes for which the 
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=red!75!black, title=WARNING]
-Let $A$ be an $m \times n$ matrix, and let $B$ and $C$ have sizes for which the indicated sums and products are defined.
+Let $A$ be an $\mxn$ matrix, and let $B$ and $C$ have sizes for which the indicated sums and products are defined.
 
 \begin{itemize}
     \item In general, $AB \ne BA$
@@ -374,7 +374,7 @@ C A = I_n \quad \text{and} \quad A C = I_n,
 \]
 In this case, $C$ is an \textbf{inverse} of $A$
 \[
-A^{-1} A = I \text{ and } A A^{-1} = I
+\Ai A = I \text{ and } A \Ai = I
 \]
 
 \begin{theorem}
@@ -392,9 +392,9 @@ A^{-1} A = I \text{ and } A A^{-1} = I
 $det A = ad - bc$
 
 \begin{theorem}
-    If A is invertible, then $\forall \ \mathbf{b} \in \mathbb{R}^n$, 
-    $A\mathbf{x} = \mathbf{b}$  
-    has the unique solution $\mathbf{x} = A^{-1}\mathbf{b}$
+    If A is invertible, then $\forall \ \bb \in \Rn$, 
+    $A\xx = \bb$  
+    has the unique solution $\xx = \Ai\bb$
 \end{theorem}
 \vspace{1cm}
 \begin{theorem}
@@ -435,9 +435,9 @@ The following statements about a square n by n matrix A are equivalent
     \item The equation \( Ax = 0 \) has only the trivial solution.
     \item The columns of \( A \) form a linearly independent set.
     \item The linear transformation \( x \mapsto Ax \) is one-to-one.
-    \item The equation \( Ax = b \) has at least one solution for each \( b \in \mathbb{R}^n \).
-    \item The columns of \( A \) span \( \mathbb{R}^n \).
-    \item The linear transformation \( x \mapsto Ax \) maps \( \mathbb{R}^n \) onto \( \mathbb{R}^n \).
+    \item The equation \( Ax = b \) has at least one solution for each \( b \in \Rn \).
+    \item The columns of \( A \) span \( \Rn \).
+    \item The linear transformation \( x \mapsto Ax \) maps \( \Rn \) onto \( \Rn \).
     \item There is an \( n \times n \) matrix \( C \) such that \( CA = I \).
     \item There is an \( n \times n \) matrix \( D \) such that \( AD = I \).
     \item \( A^T \) is an invertible matrix.
@@ -449,7 +449,7 @@ If $AB = I$, then $A$ and $B$ invertible with $B = \Ai$ and $A = B^{-1}$
 A linear transformation is invertible if $\exists S: \Rn \to \Rn$ such that:
 \[
 \begin{array}{rlr}
-    S(T(\xx)) = x & \text{for all } \xx \in \Rn \\
+    S(\Tx) = x & \text{for all } \xx \in \Rn \\
     T(S(\xx)) = x & \text{for all } \xx \in \Rn \\
 \end{array}
 \]
@@ -465,7 +465,7 @@ Trivial stuff honestly just partition and multiply.
 
 Ok actually there is one good theorem here
 \begin{theorem}[Column-Row Expansion of AB]\end{theorem}
-If A is $m \times n$ and B is $n \times p$:
+If A is $\mxn$ and B is $n \times p$:
 \[
 AB = \begin{bmatrix}col_1(A) & \ldots & col_n(A)\end{bmatrix} \begin{bmatrix}row_1(B) \\ \vdots \\ row_n(B)\end{bmatrix} = col_1(A) row_1(B) + \ldots + col_n(A) row_n(B) 
 \]
@@ -483,11 +483,11 @@ The inverse of a block upper triangular matrix:
 
 \section{Matrix Factorizations}
 
-Assume $A$ is $m \times n$ and can be reduced to Echelon Form without row interchanges. \\
+Assume $A$ is $\mxn$ and can be reduced to Echelon Form without row interchanges. \\
 Then $A = LU$, 
 \begin{itemize}
     \item $L: m \times m$ lower triangular with 1's in diagonal
-    \item $U: m \times n$ echelon form of $A$
+    \item $U: \mxn$ echelon form of $A$
 \end{itemize} 
 
 $A\xx = \bb$ can be written as $L(U\xx) = \bb$. Writing $\yy = U\xx$, we get:
@@ -512,7 +512,7 @@ We can get $\xx$ by solving the easy pair of equations:
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=yellow!75!black, title=LU Factorization Algorithm (fast)]
-For a matrix $A: m \times n$
+For a matrix $A: \mxn$
 \begin{enumerate}
     \item Initialize $L$ as the identity matrix $m \times m$ and $U$ as $A$.
     \item For each row $i = 1, 2, \dots, m$:
@@ -541,7 +541,7 @@ For $n \ge 2$, the \textbf{determinant} of a $n \times n$: \[
 \]
 \end{definition}
 
-\textbf{The (i, j)-cofactor of A}: $\cof = (-1)^{i+j}\det(A_{ij})$
+\textbf{The (i, j)-cofactor of A}: $C_{ij} = (-1)^{i+j}\det(A_{ij})$
 
 \begin{theorem}
     The determinant of A can be computed by cofactor expansion across any row or column.\\
@@ -573,7 +573,7 @@ Signs of the cofactor:
 
 \begin{theorem}\end{theorem}
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Row Operations]
-For a matrix $A: m \times n$
+For a matrix $A: \mxn$
 \begin{enumerate}[label=\alph*.]
     \item If a multiple of a row in $A$ is added to another to produce $B$: $\det(B) = \det(A)$
     \item If two rows of $A$ are swapped to produce $B$: $\det(B) = -\det(A)$
@@ -626,8 +626,8 @@ denoted by adj $A$
 \end{theorem}
 
 \begin{theorem}
-    If $A: 2 \times 2$, Area of parallelogram determined by columns of A is $|\det(A)$\\
-    If $A: 3 \times 3$, Volume of parallelepiped determined by columns of A is $|\det(A)$\\
+    If $A: 2 \times 2$, Area of parallelogram determined by columns of A is $\det(A)$\\
+    If $A: 3 \times 3$, Volume of parallelepiped determined by columns of A is $\det(A)$\\
 \end{theorem}
 
 \chapter{Vector Spaces and Subspaces}
