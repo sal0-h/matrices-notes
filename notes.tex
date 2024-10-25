@@ -231,13 +231,16 @@ If $T$ is linear then:
 \section{The Matrix of a Linear Transformation}
 
 \begin{theorem}
-\end{theorem}
-For T, there exists a unique A such that
+For a linear transformation \( T: \Rn \to \Rn \), there exists a unique matrix \( A \) such that
 \[
-\Tx = A \xx\ \ \forall \xx \in \Rn\\
+T(\xx) = A \xx \quad \forall \, \xx \in \Rn.
 \]
-Where $A = \begin{bmatrix} T(\mathbf{e}_1) & T(\mathbf{e}_2) & \dots & T(\mathbf{e}_n) \end{bmatrix}$\\
-With $\mathbf{e}_j$ is the $j$th column of the identity matrix
+This matrix \( A \) is given by
+\[
+    A = \begin{bmatrix} T(\mathbf{e}_1) & T(\mathbf{e}_2) & \dots & T(\mathbf{e}_n) \end{bmatrix},
+    \]
+    where \( \mathbf{e}_j \) denotes the \( j \)-th column of the identity matrix in \( \mathbb{R}^n \).
+\end{theorem}
 
 
 \begin{definition}
@@ -408,7 +411,7 @@ $det A = ad - bc$
 \begin{itemize}
     \item An \textbf{elementary matrix} is a matrix obtained by performing a single 
 elementary row operation on $I$
-    \item If a row op if performed on A, the result can be written as EA, where E is made
+    \item If a row op is performed on A, the result can be written as EA, where E is made
     by performing the same row op on I
     \item Each E is an invertible and its inverse is the elementary matrix that transforms E back into I. 
 \end{itemize}
