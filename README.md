@@ -18,7 +18,7 @@ These notes cover various topics in linear algebra as presented in the 21-241 co
 
 The primary reference for these notes is:
 
-- Strang, Gilbert. "Linear Algebra and Its Applications" (3rd Edition)
+- David C. Lay "Linear Algebra and Its Applications" (4th Edition)
 
 ## Disclaimer
 
