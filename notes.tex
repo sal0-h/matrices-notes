@@ -1,4 +1,7 @@
 \documentclass{report}
+\usepackage{hyperref} % For clickable links and bookmarks
+\usepackage{bookmark}
+
 \usepackage[utf8]{inputenc}
 \usepackage{enumitem}
 \usepackage{amsmath} % For math environments
@@ -206,11 +209,11 @@ A set of two vectors is linearly dependent if at least one is a multiple of the 
 \end{theorem}
 
 \begin{theorem}
-    If a set contains more vectors than entries in each vector, then it is linearly dependant 
+    If a set contains more vectors than entries in each vector, then it is linearly dependent 
 \end{theorem}
 
 \begin{theorem}
-    If a set contains the zero vector, then it is linearly dependant 
+    If a set contains the zero vector, then it is linearly dependent 
 \end{theorem}
 
 \section{Introduction to Linear Transformations}
@@ -734,7 +737,7 @@ has \textbf{only} the trivial solution
 
 \begin{theorem}
     An indexed set $\{\vv_1, \dots, \vv_p\}$ of 2 or more vectors, $v_1 \ne \0$,
-    is linearly dependant iff some $\vv_j: j > 1$ is a linear combination of 
+    is linearly dependent iff some $\vv_j: j > 1$ is a linear combination of 
     preceding vectors $\vv_1, \ldots. \vv_{j-1}$
 \end{theorem}
 
@@ -800,8 +803,8 @@ If $c_1, \ldots, c_n$ are the $\BB$-Coordinates of $\xx$ then \[
 is the \textbf{B-coordinate vector of x}
 
 The mapping $\xx \mapsto \cB$ is the \textbf{coordinate mapping}
+\\
 
-\subsection{Coordinates in $\Rn$}
 When a basis for $\Rn$ is fixed, the $\BB$-coordinate vector of an $\xx$ becomes trivial.
 
 Basically:
@@ -848,9 +851,115 @@ Likewise:\[
     $V$ onto $W$. Every vector space calculation in V is accurately reproduced in W
     and vice versa.
 \end{definition}
-Example of where its useful: $\mathbb{P}_n$ is isomorphic to $\mathbb{R}^{n+1}$.
+Example of where its useful: $\Pn$ is isomorphic to $\mathbb{R}^{n+1}$.
 The coordinates will become the coefficients of the polynomial and you can 
-convert from $\mathbb{P}_n$ to $\mathbb{R}^{n+1}$, do your business in a nice
+convert from $\Pn$ to $\mathbb{R}^{n+1}$, do your business in a nice
 clean matrix and enjoy.
+
+\section{The Dimension of a Vector Space}
+
+\begin{theorem}
+    If a vector space has basis with n vectors, any set containing more than 
+    n vectors is linearly dependent.
+\end{theorem}
+
+\begin{theorem}
+    If a vector space has basis with n vectors, every basis of the space must consist
+    of exactly n vectors
+\end{theorem}
+
+\begin{definition}
+    Dimension of $V$, $\dim V$, is the number of vectors in a basis for $V$.cDimension of $\{\0\}$ is defined to be $0$. \\
+    This only applies if $V$ is spanned by a finite set, which makes it \textbf{finite-dimensional}. Otherwise, it is
+    \textbf{infinite-dimensional}
+\end{definition}
+
+For example: $\dim \Rn = n$, $\dim \Pn = n + 1$
+
+\subsection{Subspaces of a Finite-Dimensional Space}
+
+\begin{theorem}[How's this a theorem]
+    Let $H$ be a subspace of finite-dimensional $V$ 
+    \begin{itemize}
+        \item Any linearly independent set in $H$ can be expanded to a basis of $H$
+        \item $H$ is finite-dimensional
+        \item $\dim H \le \dim V$
+    \end{itemize} 
+\end{theorem}
+
+Next theorem in a nutshell: if the set has the right number of elements, its sufficient
+to show either that the set is linearly independent OR that it spans the space.
+(Linear Independence is sometimes easier to verify than spanning)
+\begin{theorem}[The Basis Theorem]
+    Let $V$ be a $p$-dimensional vector space, $p \ge 1$.
+    \begin{itemize}
+        \item Any linearly independent set of $p$ elements in $V$ is a basis
+        \item Any set of $p$ elements in $V$ that spans $V$ is a basis
+    \end{itemize}
+\end{theorem}
+
+\subsection{The Dimensions of Nul A and Col A}
+
+The dimension of $\Nul A$ is the number of free variables in $A\xx = \0$.\\
+The dimension of $\Col A$ is the number of pivot columns in $A$.\\
+
+\section{Rank}
+Let's take a look \textit{inside} the matrix (exciting!)
+
+\subsection{The Row Space}
+
+\begin{definition}
+    Set of all linear combinations of the row vectors is called the \textbf{Row Space} of $A$, 
+    denoted $\Row A$
+\end{definition}
+
+\begin{theorem}[Worthwillity of Row Reduction]
+    If two matrices $A$ and $B$ are row-equivalent, then \textbf{their row spaces are the same}. 
+    If $B$ is echelonm the nonzero rows of $B$ form a basis for the row space of both $A$ and $B$.
+\end{theorem}
+
+Now we are able to get the Nul, Col and Row space with one sequence of row operations!
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Getting the trio]
+Let A be a matrix.
+\begin{enumerate}
+    \item Row reduce $A$ to an echelon form $B$
+    \item The non-zero rows of $B$ form a basis for the row space of $B$ and also $A$
+    \item The pivot columns, identified from $B$, can be taken from $A$ and they will 
+    form a basis for the column space
+    \item Now get the reduced echelon form, $C$
+    \item $A\xx = \0$ is equivalent to $C\xx = \0$. Do the usual stuff to find the 
+    solution set, which will be the null space.
+\end{enumerate}
+Unlike Col space, Null and Row have no simple connection with the entries in A itself.
+\end{tcolorbox}
+
+\subsection{The Rank Theorem}
+\begin{definition}
+    The \textbf{rank} of $A$ is the dimension of the column space of $A$
+\end{definition}
+
+\begin{theorem}[The Real Theorem]
+    For $A: \mxn$, 
+    \begin{itemize}
+        \item $\dim (\Col A) = \dim (\Row A) = \rank A$
+        \item $\rank A + \dim (\Nul A) = n$
+    \end{itemize}
+\end{theorem}
+
+\subsection{Rank and the Invertible Matrix Theorem}
+As if it wasn't enough, there's now more statements for it.
+Namely, the following statements are equivalent to the statement that A is invertible:
+\begin{itemize}
+    \item The columns of $A$ form a basis of $\Rn$
+    \item $\Col A = \Rn$
+    \item $\dim (\Col A) = n$
+    \item $\rank A = n$
+    \item $\Nul A = \{\0\}$
+    \item $\dim (\Nul A) = 0$
+\end{itemize}
+
+\section{Change of Basis}
+
+% \chapter{Eigenvalues and Eigenvectors}
 
 \end{document}
