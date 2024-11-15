@@ -100,7 +100,7 @@ $\forall$ $\uu, \vv, \ww \in \Rn$ and scalars $c$ and $d$:
 A linear combination is a vector $\yy = c_1\vv_1 + \ldots + c_p\vv_p$
 
 \begin{definition}
-    $Span\{\vv_1, \ldots, \vv_p\}$ is the set of all linear combinations of $\mathbf{v_1}, \ldots, \mathbf{v_p}$
+    $\Span\{\vv_1, \ldots, \vv_p\}$ is the set of all linear combinations of $\mathbf{v_1}, \ldots, \mathbf{v_p}$
     \\It is the set of all vectors that can be written in the form $c_1\vv_1 + \ldots + c_p\vv_p$
 \end{definition}
 
@@ -392,7 +392,7 @@ In this case, $C$ is an \textbf{inverse} of $A$
     \]
 \end{theorem}
 
-$det A = ad - bc$
+$\det A = ad - bc$
 
 \begin{theorem}
     If A is invertible, then $\forall \ \bb \in \Rn$, 
@@ -634,14 +634,15 @@ denoted by adj $A$
 \end{theorem}
 
 \chapter{Vector Spaces and Subspaces}
-
+\setcounter{theorem}{0}
+\setcounter{definition}{0}
 \section{Vector Spaces and Subspaces}
 
 \begin{definition}
     A \textbf{vector space} is a nonempty set $V$ of objects called vectors, on which there are defined two operations:
     \textit{addition} and \textit{scalar multiplication}. The axioms below must hold for all $\uu, \ww, \vv \ \in V$
 \end{definition}
-\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black,title=Taweel Axioms]
 \begin{enumerate}
     \item $\uu + \vv \ \in V$ (Closure under addition)
     \item $\uu + \vv = \vv + \uu$
@@ -666,6 +667,37 @@ denoted by adj $A$
 \end{definition}
 
 \begin{theorem}
-    If $\vv_1, \ldots, \vv_p$ are in a vector space $V$, then $Span \{\vv_1, \ldots, \vv_p\}$ is a subspace of $V$
+    If $\vv_1, \ldots, \vv_p$ are in a vector space $V$, then $\Span \{\vv_1, \ldots, \vv_p\}$ is a subspace of $V$
 \end{theorem}
+
+\section{Null Spaces, Column Spaces and Linear Transformations}
+
+\begin{definition}
+    The \textbf{null space} of an $\mxn$ matrix $A$, $\Nul A$, is the set of all solutions to $A\xx = \0$
+    \[\Nul A = \{\xx : \xx \in \Rn \text{ and } A \xx = \0\}\]
+\end{definition}
+
+\begin{theorem}
+    For $A: \mxn$, $\Nul A$ is a subspace of $\Rn$
+\end{theorem}
+
+\begin{definition}
+    The \textbf{column space} of an $\mxn$ matrix $A$, $\Col A$, is the
+    set of all linear combinations of the columns of $A$. If $A = \begin{bmatrix}
+        a_1 & \dots a_n
+    \end{bmatrix}$ then \[
+    \Col A = \Span \{a_1 \ldots a_n\}
+    \]
+\end{definition}
+
+\begin{theorem}
+    For $A: \mxn$, $\Col A$ is a subspace of $\Rn$
+\end{theorem}
+
+
+
+\noindent The column space of $A: \mxn$ is all of $\Rm$ iff $A\xx=\bb$ has a solution for each $\bb \in \Rn$
+
+
+
 \end{document}
