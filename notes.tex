@@ -960,6 +960,42 @@ Namely, the following statements are equivalent to the statement that A is inver
 
 \section{Change of Basis}
 
-% \chapter{Eigenvalues and Eigenvectors}
+\chapter{Eigenvalues and Eigenvectors}
+\setcounter{theorem}{0}
+\setcounter{definition}{0}
 
+\section{Eigenvalues and Eigenvectors}
+
+\begin{definition}
+    An \textbf{eigenvector} of $A: n \times n$ is a nonzero vector $\xx$ 
+    such that $A \xx = \lambda \xx$. The scalar $\lambda$ is called an 
+    \textbf{eigenvalue} of $A$ if there is a nontrivial solution of $A \xx = \lambda \xx$.
+\end{definition}
+
+$\lambda$ is an eigenvalue of $A$ iff $(A - \lambda I) \xx = \0$ has a nontrivial solution.
+
+The set of all the solutions of the above equation is just $\Nul (A - \lambda I)$, which is called the
+\textbf{eigenspace} of $A$ corresponding to $\lambda$. 
+
+It consists of the zero vector and the all eigenvectors.
+
+\begin{theorem}
+    The eigenvalues of a triangular matrix are the entries on its main diagonal
+\end{theorem}
+
+\begin{theorem}
+    If $\vv_1, \ldots, \vv_r$ are eigenvectors corresponding to $\lambda_1, \ldots, \lambda_r$, 
+    then the set $\{\vv_1, \ldots, \vv_r\}$ is linearly independent.
+\end{theorem}
+
+\section{The Characteristic Equation}
+
+The problem of finding eigenvalues of $A$ is equivalent to finding all $\lambda$
+such that $(A - \lambda \xx) = \0$ is NOT invertible.
+
+This happens precisely when the determinant is zero.
+
+Hence, this equation gives the eigenvalues of A: \[\det (A - \lambda \xx) = 0\]
+
+Now there's more stuff to add to... ill finish this later
 \end{document}
