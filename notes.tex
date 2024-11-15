@@ -4,15 +4,24 @@
 \usepackage{amsmath} % For math environments
 \usepackage{tcolorbox}
 \input{preamble}
-
+\setlength{\parindent}{0pt} % Ensure that no indent is added
 \title{21-241 Matrices and Linear Transformations Notes}
-\date{Exam 2 Edition}
+\date{Exam 3 Edition}
 \author{Compiled by Salman Hajizada}
 
 \begin{document}
 \maketitle
 
-% Example Chapter
+\setcounter{chapter}{-1}
+\chapter{Disclaimer}
+This is not a textbook. Do not use this text to learn the concepts.
+This is a revision guide or notes used to refresh your memory of te theorems
+and algorithms. The best way to learn the content is to read the book, work through
+the guided exercises and do some practice problems. 
+
+Good luck,
+
+SH
 \chapter{Linear Equations in Linear Algebra}
 
 \section{Systems of linear equations}
@@ -71,16 +80,16 @@ A matrix is in \textbf{reduced echelon form} if
 \end{tcolorbox}
 Variables corresponding to pivot columns are \textbf{basic}, the other ones are \textbf{free}
 \begin{theorem}[Existence and Uniqueness theorem]
+    
+    A linear system is consistent iff the right column of the augmented matrix is NOT a pivot column
+    i.e. iff echelon form has NO row of form:
+    \[\begin{bmatrix}
+        0 & \ldots & 0 & b
+    \end{bmatrix} \text{with $b$ nonzero}
+    \]
+    If a system is consistent then solution set contain either a unique solution if there are 0 free variables
+    or infinite solutions if there is at least 1 free variable.
 \end{theorem}
-
-A linear system is consistent iff the right column of the augmented matrix is NOT a pivot column
-i.e. iff echelon form has NO row of form:
-\[\begin{bmatrix}
-    0 & \ldots & 0 & b
-\end{bmatrix} \text{with $b$ nonzero}
-\]
-If a system is consistent then solution set contain either a unique solution if there are 0 free variables
-or infinite solutions if there is at least 1 free variable.
 
 \section{Vector Equations}
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Algebraic Properties of Vectors in $\Rn$]
@@ -123,9 +132,8 @@ x_1 \\ x_2 \\ \vdots \\ x_n
 This is defined only if the number of columns of A equals number of entires in $\xx$
 
 \begin{theorem}
-\end{theorem}
-If A is an $\mxn$ matrix and $\bb \in \Rn$, then $A \xx = \bb$ has the same solution set as 
-\[
+    If A is an $\mxn$ matrix and $\bb \in \Rn$, then $A \xx = \bb$ has the same solution set as 
+    \[
 x_1 \aaa_1 + x_2 \aaa_2 + \cdots + x_n \aaa_n = b
 \]
 which has the same solution set as the system of linear equations with matrix
@@ -134,26 +142,27 @@ which has the same solution set as the system of linear equations with matrix
     \aaa_1 & \ldots & \aaa_n & \bb
 \end{bmatrix}
 \]
+\end{theorem}
 
 \begin{theorem}
+    Let A be a $\mxn$ matrix. The following statements are equivalent
+    \begin{enumerate}[label=\alph*.]
+        \item $\forall\ \bb \in \Rm, A \xx = \bb$ has a solution
+        \item $\forall\ \bb$ is a linear combination of the columns of A
+        \item The columns of A span $\Rm$
+        \item A has a pivot in every row
+    \end{enumerate}
 \end{theorem}
-Let A be a $\mxn$ matrix. The following statements are equivalent
-\begin{enumerate}[label=\alph*.]
-    \item $\forall\ \bb \in \Rm, A \xx = \bb$ has a solution
-    \item $\forall\ \bb$ is a linear combination of the columns of A
-    \item The columns of A span $\Rm$
-    \item A has a pivot in every row
-\end{enumerate}
 Warning: A is a \textbf{coefficient matrix} in this theorem
 
 \begin{theorem}
+    If A is an $\mxn$ matrix and $\uu,\vv \in \Rn$, and c is a scalar
+    \begin{enumerate}[label=\alph*.]
+        \item $A\ (\uu + \vv) = A \uu + A \vv$;
+        \item $A\ (c \uu) = c (A \uu)$;
+    \end{enumerate}
 \end{theorem}
-If A is an $\mxn$ matrix and $\uu,\vv \in \Rn$, and c is a scalar
-\begin{enumerate}[label=\alph*.]
-    \item $A\ (\uu + \vv) = A \uu + A \vv$;
-    \item $A\ (c \uu) = c (A \uu)$;
-\end{enumerate}
-
+    
 \section{Solution sets of Linear Systems}
 
 \textbf{Homogenous Linear Systems}: if it can be written in form $A \xx = \0$
@@ -163,10 +172,10 @@ If A is an $\mxn$ matrix and $\uu,\vv \in \Rn$, and c is a scalar
 $\bb$ non-zero
 
 \begin{theorem}
+    Let $A \xx = \bb$ be consistent for some $\bb$, let $\mathbf{p}$ be a solution.
+    Then the solution set is the set of all vectors in form $\ww = \mathbf{p} + \vv_h$, 
+    where $\vv_h$ is any solution of $A \xx = \0$
 \end{theorem}
-Let $A \xx = \bb$ be consistent for some $\bb$, let $\mathbf{p}$ be a solution.
-Then the solution set is the set of all vectors in form $\ww = \mathbf{p} + \vv_h$, 
-where $\vv_h$ is any solution of $A \xx = \0$
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Writing a solution set in parametric vector form]
 \begin{enumerate}
@@ -180,29 +189,29 @@ where $\vv_h$ is any solution of $A \xx = \0$
 \setcounter{section}{6}
 \section{Linear Independence}
 \begin{definition}
+    $\{ \vv_1, \ldots, \vv_p\}$ is \textbf{linearly independent} if 
+    \[
+    x_1 \vv_1 + \ldots + x_p \vv_p = \0
+    \]
+    has only the trivial solution. It is said to be \textbf{linearly dependent} if $\exists c_1, \ldots, c_p$, not all zero, such that 
+    \[
+    c_1 \vv_1 + \ldots + c_p \vv_p = \0
+    \]
 \end{definition}
-$\{ \vv_1, \ldots, \vv_p\}$ is \textbf{linearly independent} if 
-\[
-x_1 \vv_1 + \ldots + x_p \vv_p = \0
-\]
-has only the trivial solution. It is said to be \textbf{linearly dependent} if $\exists c_1, \ldots, c_p$, not all zero, such that 
-\[
-c_1 \vv_1 + \ldots + c_p \vv_p = \0
-\]
-
+            
 A set of two vectors is linearly dependent if at least one is a multiple of the other
 
 \begin{theorem}[Characterization of Linearly independent Sets]
+    A set of two or more vectors is linearly dependent iff at least one of them is a linear combination the others.
 \end{theorem}
-A set of two or more vectors is linearly dependent iff at least one of them is a linear combination the others.
 
 \begin{theorem}
+    If a set contains more vectors than entries in each vector, then it is linearly dependant 
 \end{theorem}
-If a set contains more vectors than entries in each vector, then it is linearly dependant 
 
 \begin{theorem}
+    If a set contains the zero vector, then it is linearly dependant 
 \end{theorem}
-If a set contains the zero vector, then it is linearly dependant 
 
 \section{Introduction to Linear Transformations}
 
@@ -244,9 +253,8 @@ This matrix \( A \) is given by
 
 
 \begin{definition}
-\end{definition}
-$T$ is \textbf{onto} (surjective) if
-\begin{itemize}
+    $T$ is \textbf{onto} (surjective) if
+    \begin{itemize}
     \item Range of $T$ = Co-domain
     \item $\forall \ \vv \in codomain (B), \exists \ 
     \uu \in domain (A)$ such that $T(\uu)=\vv$
@@ -257,10 +265,10 @@ $T$ is \textbf{onto} (surjective) if
     \end{bmatrix}
     \]
     Onto if $A \uu = \vv$ has a solution for each $\vv$ in range
-\end{itemize}
+    \end{itemize}
+\end{definition}
 
 \begin{definition}
-\end{definition}
 $T$ is \textbf{one-to-one} (injective)if
 \begin{itemize}
     \item $T(\uu_1) = T(\uu_2) \implies \uu_1 = \uu_2$
@@ -272,6 +280,8 @@ $T$ is \textbf{one-to-one} (injective)if
     \]
     $A \uu = \bb$ has a unique solution for each $\bb \in Range(T)$
 \end{itemize}
+\end{definition}
+
 
 \begin{theorem}
     $T$ is one-to-one iff $\Tx = \0$ has a ONLY the trivial solution
@@ -301,9 +311,8 @@ Two matrices are \textbf{equal} if they have the same size and their entries are
 
 \setcounter{theorem}{0}
 \setcounter{definition}{0}
-\begin{theorem}
-\end{theorem}
-\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Properties of Matrices]
+\begin{theorem}Properties of Matrices
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
 Let $A$, $B$ and $C$ be matrices of the same size, and let $r$ and $s$ be scalars
 \begin{itemize}
     \item $A + B = B + A$
@@ -314,6 +323,7 @@ Let $A$, $B$ and $C$ be matrices of the same size, and let $r$ and $s$ be scalar
     \item $r(sA) = (rs)A$
 \end{itemize}
 \end{tcolorbox}
+\end{theorem}
 
 \begin{definition}
     If $A$ is a $\mxn$ matrix and $B$ is an $n \times p$ matrix with columns
@@ -331,11 +341,10 @@ AB = A\begin{bmatrix}\bb_1 \ldots \bb_p\end{bmatrix}
 \item $row_i(AB) = row_i(A)\cdot B$
 \end{itemize}
 
-\begin{theorem}
-\end{theorem}
-\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Properties of Matrices]
-Let $A$ be an $\mxn$ matrix, and let $B$ and $C$ have sizes for which the indicated sums and products are defined.
-
+\begin{theorem} More Properties of Matrices
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
+    Let $A$ be an $\mxn$ matrix, and let $B$ and $C$ have sizes for which the indicated sums and products are defined.
+        
 \begin{itemize}
     \item[] $A(BC) = (AB)C$ \hfill (associative law of multiplication)
     \item[] $A(B + C) = AB + AC$ \hfill (left distributive law)
@@ -344,6 +353,7 @@ Let $A$ be an $\mxn$ matrix, and let $B$ and $C$ have sizes for which the indica
     \item[] $I_m A = A = A I_n$ \hfill (identity for matrix multiplication)
 \end{itemize}
 \end{tcolorbox}
+\end{theorem}
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=red!75!black, title=WARNING]
 Let $A$ be an $\mxn$ matrix, and let $B$ and $C$ have sizes for which the indicated sums and products are defined.
@@ -358,8 +368,7 @@ Let $A$ be an $\mxn$ matrix, and let $B$ and $C$ have sizes for which the indica
 Power of a matrix: $A^k = \underbrace{A A \dots A}_{k}$ \\
 
 The transpose of a matrix: \( A^T \) is obtained by swapping its rows and columns of A.
-\begin{theorem}\end{theorem}
-
+\begin{theorem} Transpose Properties
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
 \begin{itemize}
     \item $(A^T)^T = A$ 
@@ -368,6 +377,7 @@ The transpose of a matrix: \( A^T \) is obtained by swapping its rows and column
     \item $(AB)^T = B^T A^T$ 
 \end{itemize}
 \end{tcolorbox}
+\end{theorem}
 
 \section{The Inverse of a Matrix}
 
@@ -428,7 +438,7 @@ $\begin{bmatrix}I & \Ai\end{bmatrix}$
 \section{Characterizations of Matrices}
 
 \setcounter{theorem}{7}
-\begin{theorem}\end{theorem}
+\begin{theorem} The Invertible Matrix Theorem
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
 The following statements about a square n by n matrix A are equivalent
 \begin{itemize}
@@ -446,6 +456,7 @@ The following statements about a square n by n matrix A are equivalent
     \item \( A^T \) is an invertible matrix.
 \end{itemize}
 \end{tcolorbox}
+\end{theorem}
 
 If $AB = I$, then $A$ and $B$ invertible with $B = \Ai$ and $A = B^{-1}$
 
@@ -467,7 +478,7 @@ A linear transformation is invertible if $\exists S: \Rn \to \Rn$ such that:
 Trivial stuff honestly just partition and multiply.
 
 Ok actually there is one good theorem here
-\begin{theorem}[Column-Row Expansion of AB]\end{theorem}
+\begin{theorem}[Column-Row Expansion of AB]
 If A is $\mxn$ and B is $n \times p$:
 \[
 AB = \begin{bmatrix}col_1(A) & \ldots & col_n(A)\end{bmatrix} \begin{bmatrix}row_1(B) \\ \vdots \\ row_n(B)\end{bmatrix} = col_1(A) row_1(B) + \ldots + col_n(A) row_n(B) 
@@ -483,6 +494,7 @@ The inverse of a block upper triangular matrix:
     0 & A_{22}^{-1}
 \end{bmatrix}
 \]
+\end{theorem}
 
 \section{Matrix Factorizations}
 
@@ -574,8 +586,8 @@ Signs of the cofactor:
 
 \section{Properties of Determinants}
 
-\begin{theorem}\end{theorem}
-\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Row Operations]
+\begin{theorem}Row Operations
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
 For a matrix $A: \mxn$
 \begin{enumerate}[label=\alph*.]
     \item If a multiple of a row in $A$ is added to another to produce $B$: $\det(B) = \det(A)$
@@ -583,6 +595,7 @@ For a matrix $A: \mxn$
     \item If a row of $A$ is multiplied by $k$ to produce $B$: $\det(B) = k \cdot \det(A)$
 \end{enumerate}
 \end{tcolorbox}
+\end{theorem}
 Two main strats where this is useful:
 \begin{itemize}
     \item Row reduce a matrix to echelon form to simplify calculation (without row interchange!)
@@ -694,10 +707,150 @@ denoted by adj $A$
     For $A: \mxn$, $\Col A$ is a subspace of $\Rn$
 \end{theorem}
 
+The column space of $A: \mxn$ is all of $\Rm$ iff $A\xx=\bb$ has a solution for each $\bb \in \Rn$
+
+\begin{definition}
+    A \textbf{linear transformation} $T$ from a vector space $V$ into a vector space
+    $W$ is a mapping from $\xx \in  V$ to a unique vector $T(\xx) \in W$ such that
+    \begin{itemize}[]
+        \item[(i)] $T(\uu + \vv) = T(\uu) + T(\vv)$ \quad for all $\uu, \vv$ in $V$, and
+        \item[(ii)] $T(c \uu) = c T(\uu)$ \quad for all $\uu$ in $V$ and all scalars $c$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    The \textbf{kernel} of $T$ is the set of all $\uu \in V$ such that $T(\uu) = \0$
+\end{definition}
+
+\begin{definition}
+    The \textbf{range} of $T$ is the set of all $T(\xx) \in W$ for some $\xx \in V$
+\end{definition}
+
+\section{Linearly Independent Sets; Bases}
+\textbf{Recap}\\
+The set $\{\vv_1, \dots, \vv_p\}$ is \textbf{linearly independent} if the 
+vector equation $c_1 \vv_1 + \ldots + c_p \vv_p = \0 $
+has \textbf{only} the trivial solution
+
+\begin{theorem}
+    An indexed set $\{\vv_1, \dots, \vv_p\}$ of 2 or more vectors, $v_1 \ne \0$,
+    is linearly dependant iff some $\vv_j: j > 1$ is a linear combination of 
+    preceding vectors $\vv_1, \ldots. \vv_{j-1}$
+\end{theorem}
+
+\begin{definition}
+    Let $H$ be a subspace of $V$.
+    An set of vectors $\BB = \{\bb_1, \dots, \bb_p\}$ is a \textbf{basis} for
+    $H$ iff
+    \begin{enumerate}
+        \item[(i)] $\BB$ is a linearly independent set
+        \item[(ii)] $H = \Span \{\bb_1, \dots, \bb_p\}$
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[The Spanning Set Theorem]
+    Let $S = \{\vv_1, \ldots, \vv_p\}$, $H = \Span \{\vv_1, \ldots, \vv_p\}$
+    \begin{enumerate}[label=\alph*.]
+        \item If one of the vectors is a linear combination of the remaining vectors,
+        then the set formed by removing from $S$ it still spans $H$.
+        \item If $H \ne \{\0\}$, some subset of $S$ is a basis for $H$
+    \end{enumerate}
+\end{theorem}
+
+Bases for $\Nul A$: the usual method (solve $A\xx = \0$ and write the solution set) 
+already provides the basis\\
+
+Bases for $\Col A$: columns of $A$ have \textbf{exactly the same linear 
+dependence relationships} as columns of $B$ (reduced echelon form of $A$).
+For example, if $\bb_2 = 4 \bb_1$ then $\aaa_2 = 4 \aaa_1$
+
+\begin{theorem}
+    The pivot columns of a matrix $A$ forms a basis for $\Col A$
+\end{theorem}
+
+WARNING: MAKE SURE TO USE THE PIVOT COLUMNS OF A ITSELF, NOT OF ITS ROW 
+REDUCED COUNTERPART. ROW OPERATIONS CAN CHANGE THE COLUMNS SPACE OF A MATRIX.
+\\
+
+\textbf{Two views of a basis}
+\begin{itemize}
+    \item A basis is a spanning set that is as small as possible
+    \item A basis is a linearly independent set that is as large as possible
+\end{itemize}
+
+\section{Coordinate Systems (Counts as a systems elective)}
+\begin{theorem}[The Unique Ebil Theorem]
+    Let $\BB$ be a basis for a vector space $V$. $\forall \xx \in V$, there exists
+    a unique set of scalars $c_1, \ldots, c_n$ such that \[
+    \xx = c_1\bb_1 + \ldots + c_n\bb_n
+    \]
+\end{theorem}
+
+\begin{definition}
+    Let $\BB = \{\bb_1, \ldots, \bb_n\}$ be a basis for a vector space $V$ and $\xx \in V$. 
+    The \textbf{coordinates of x relative to the basis $\BB$} are the weights $c_1, \ldots, c_n$ such that
+    $\xx = c_1\bb_1 + \ldots + c_n\bb_n $
+\end{definition}
+
+If $c_1, \ldots, c_n$ are the $\BB$-Coordinates of $\xx$ then \[
+\cB = \begin{bmatrix}
+    c_1 \\ \vdots \\ c_n
+\end{bmatrix}
+\]
+is the \textbf{B-coordinate vector of x}
+
+The mapping $\xx \mapsto \cB$ is the \textbf{coordinate mapping}
+
+\subsection{Coordinates in $\Rn$}
+When a basis for $\Rn$ is fixed, the $\BB$-coordinate vector of an $\xx$ becomes trivial.
+
+Basically:
+\[
+\begin{array}{rlr}
+    \BB &= \{\bb_1, \ldots, \bb_n\} \\
+    \cB &= ?
+    \\\\
+    \xx &= c_1 \bb_1 + \ldots + c_n \bb_n \\ 
+    \xx &= \begin{bmatrix}
+        \bb_1 & \ldots & \bb_n
+    \end{bmatrix} 
+    \begin{bmatrix}
+        c_1 \\ \ldots \\ c_n
+    \end{bmatrix}
+\end{array}
+\]
+This equation can be solved by row reduction or another method, 
+which will give you the value of $c_1, \ldots, c_n$, which makes \[
+    \cB = \begin{bmatrix}
+        c_1 \\ \ldots \\ c_n
+    \end{bmatrix}
+\]
+
+Let $\pb = \begin{bmatrix}
+    \bb_1 & \ldots & \bb_n
+\end{bmatrix} $
+Then the vector equation for $\xx$ becomes $\xx = \pb \cB$.
+$\pb$ is the \textbf{change-of-coordinate matrix} from $\BB$ to the standard basis in $\Rn$. Left
+multiplication by it transforms $\cB$ into $\xx$.
 
 
-\noindent The column space of $A: \mxn$ is all of $\Rm$ iff $A\xx=\bb$ has a solution for each $\bb \in \Rn$
+Likewise:\[
+\pb^{-1} \xx = \cB
+\]
 
+\begin{theorem}
+    Let $\BB = \{\bb_1, \ldots, \bb_n\}$ be a basis for $V$. Then the coordinate 
+    mapping $\xx \mapsto \cB$ is a 1-1 linear transformation from $V$ to $\Rn$
+\end{theorem}
 
+\begin{definition}
+    Isomorphism from $V$ onto $W$: a 1-1 linear transformation from a vector space
+    $V$ onto $W$. Every vector space calculation in V is accurately reproduced in W
+    and vice versa.
+\end{definition}
+Example of where its useful: $\mathbb{P}_n$ is isomorphic to $\mathbb{R}^{n+1}$.
+The coordinates will become the coefficients of the polynomial and you can 
+convert from $\mathbb{P}_n$ to $\mathbb{R}^{n+1}$, do your business in a nice
+clean matrix and enjoy.
 
 \end{document}

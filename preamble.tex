@@ -15,6 +15,7 @@
 
 \usepackage[margin=1.75cm]{geometry}
 
+\theoremstyle{definition} % Non-italic style
 \newtheorem{remark}{Remark}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
@@ -22,10 +23,6 @@
 \newtheorem{corollary}{Corollary}
 \newtheorem{property}[theorem]{Property}
 \newtheorem{proposition}[theorem]{Proposition}
-
-% Boxes used in proof template
-\usepackage[colorinlistoftodos,prependcaption,textsize=footnotesize]{todonotes}
-\newcommand{\expl}[2]{\todo[inline,linecolor=#1,backgroundcolor=#1!25,bordercolor=#1]{#2}}
 
 \newcommand{\xx}{\mathbf{x}}
 \newcommand{\Tx}{T(\xx)}
@@ -44,5 +41,10 @@
 \newcommand{\Col}{\mathrm{Col}\;}
 \newcommand{\Nul}{\mathrm{Nul}\;}
 \newcommand{\Span}{\mathrm{Span}\;}
+\newcommand{\BB}{\mathcal{B}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\cB}{[\xx]_\BB}
+\newcommand{\cC}{[\xx]_\CC}
+\newcommand{\pb}{P_\BB}
 
 \newcommand{\matAI}{$\begin{bmatrix}A & I\end{bmatrix}$}
