@@ -686,7 +686,7 @@ denoted by adj $A$
     If $\vv_1, \ldots, \vv_p$ are in a vector space $V$, then $\Span \{\vv_1, \ldots, \vv_p\}$ is a subspace of $V$
 \end{theorem}
 
-\section{Null Spaces, Column Spaces and Linear Transformations}
+\section{Null Spaces, Column Spaces, Row Spaces and Linear Transformations}
 
 \begin{definition}
     The \textbf{null space} of an $\mxn$ matrix $A$, $\Nul A$, is the set of all solutions to $A\xx = \0$
@@ -711,6 +711,12 @@ denoted by adj $A$
 \end{theorem}
 
 The column space of $A: \mxn$ is all of $\Rm$ iff $A\xx=\bb$ has a solution for each $\bb \in \Rn$
+
+\begin{definition}
+    The \textbf{row space} of an $\mxn$ matrix $A$, $\Row A$, is the
+    set of all linear combinations of the rows of $A$. 
+\end{definition}
+
 
 \begin{definition}
     A \textbf{linear transformation} $T$ from a vector space $V$ into a vector space
@@ -751,7 +757,9 @@ has \textbf{only} the trivial solution
     \end{enumerate}
 \end{definition}
 
-\begin{theorem}[The Spanning Set Theorem]
+\subsection{The Spanning Set Theorem}
+
+\begin{theorem}
     Let $S = \{\vv_1, \ldots, \vv_p\}$, $H = \Span \{\vv_1, \ldots, \vv_p\}$
     \begin{enumerate}[label=\alph*.]
         \item If one of the vectors is a linear combination of the remaining vectors,
@@ -759,6 +767,8 @@ has \textbf{only} the trivial solution
         \item If $H \ne \{\0\}$, some subset of $S$ is a basis for $H$
     \end{enumerate}
 \end{theorem}
+
+\subsection{Bases for Nul A and Col A}
 
 Bases for $\Nul A$: the usual method (solve $A\xx = \0$ and write the solution set) 
 already provides the basis\\
@@ -774,6 +784,11 @@ For example, if $\bb_2 = 4 \bb_1$ then $\aaa_2 = 4 \aaa_1$
 WARNING: MAKE SURE TO USE THE PIVOT COLUMNS OF A ITSELF, NOT OF ITS ROW 
 REDUCED COUNTERPART. ROW OPERATIONS CAN CHANGE THE COLUMNS SPACE OF A MATRIX.
 \\
+
+\begin{theorem}[Worthwillity of Row Reduction]
+    If two matrices $A$ and $B$ are row-equivalent, then \textbf{their row spaces are the same}. 
+    If $B$ is echelon the nonzero rows of $B$ form a basis for the row space of both $A$ and $B$.
+\end{theorem}
 
 \textbf{Two views of a basis}
 \begin{itemize}
@@ -832,7 +847,9 @@ which will give you the value of $c_1, \ldots, c_n$, which makes \[
 Let $\pb = \begin{bmatrix}
     \bb_1 & \ldots & \bb_n
 \end{bmatrix} $
-Then the vector equation for $\xx$ becomes $\xx = \pb \cB$.
+Then the vector equation for $\xx$ becomes \[
+\xx = \pb \cB
+\]
 $\pb$ is the \textbf{change-of-coordinate matrix} from $\BB$ to the standard basis in $\Rn$. Left
 multiplication by it transforms $\cB$ into $\xx$.
 
@@ -869,8 +886,10 @@ clean matrix and enjoy.
 \end{theorem}
 
 \begin{definition}
-    Dimension of $V$, $\dim V$, is the number of vectors in a basis for $V$.cDimension of $\{\0\}$ is defined to be $0$. \\
-    This only applies if $V$ is spanned by a finite set, which makes it \textbf{finite-dimensional}. Otherwise, it is
+    Dimension of $V$, $\dim V$, is the number of vectors in a basis for $V$. 
+    Dimension of $\{\0\}$ is defined to be $0$. \\
+    This only applies if $V$ is spanned by a finite set, 
+    which makes it \textbf{finite-dimensional}. Otherwise, it is
     \textbf{infinite-dimensional}
 \end{definition}
 
@@ -878,7 +897,7 @@ For example: $\dim \Rn = n$, $\dim \Pn = n + 1$
 
 \subsection{Subspaces of a Finite-Dimensional Space}
 
-\begin{theorem}[How's this a theorem]
+\begin{theorem}
     Let $H$ be a subspace of finite-dimensional $V$ 
     \begin{itemize}
         \item Any linearly independent set in $H$ can be expanded to a basis of $H$
@@ -898,24 +917,18 @@ to show either that the set is linearly independent OR that it spans the space.
     \end{itemize}
 \end{theorem}
 
-\subsection{The Dimensions of Nul A and Col A}
-
-The dimension of $\Nul A$ is the number of free variables in $A\xx = \0$.\\
-The dimension of $\Col A$ is the number of pivot columns in $A$.\\
-
-\section{Rank}
-Let's take a look \textit{inside} the matrix (exciting!)
-
-\subsection{The Row Space}
+\subsection{The Dimensions of Nul A, Col A and Row A}
 
 \begin{definition}
-    Set of all linear combinations of the row vectors is called the \textbf{Row Space} of $A$, 
-    denoted $\Row A$
+    The \textbf{rank} of $A$ is the dimension of the column space of $A$
 \end{definition}
 
-\begin{theorem}[Worthwillity of Row Reduction]
-    If two matrices $A$ and $B$ are row-equivalent, then \textbf{their row spaces are the same}. 
-    If $B$ is echelonm the nonzero rows of $B$ form a basis for the row space of both $A$ and $B$.
+\begin{theorem}[The Real Theorem]
+    For $A: \mxn$, 
+    \begin{itemize}
+        \item $\dim (\Col A) = \dim (\Row A) = \rank A$
+        \item $\rank A + \dim (\Nul A) = n$
+    \end{itemize}
 \end{theorem}
 
 Now we are able to get the Nul, Col and Row space with one sequence of row operations!
@@ -933,19 +946,6 @@ Let A be a matrix.
 Unlike Col space, Null and Row have no simple connection with the entries in A itself.
 \end{tcolorbox}
 
-\subsection{The Rank Theorem}
-\begin{definition}
-    The \textbf{rank} of $A$ is the dimension of the column space of $A$
-\end{definition}
-
-\begin{theorem}[The Real Theorem]
-    For $A: \mxn$, 
-    \begin{itemize}
-        \item $\dim (\Col A) = \dim (\Row A) = \rank A$
-        \item $\rank A + \dim (\Nul A) = n$
-    \end{itemize}
-\end{theorem}
-
 \subsection{Rank and the Invertible Matrix Theorem}
 As if it wasn't enough, there's now more statements for it.
 Namely, the following statements are equivalent to the statement that A is invertible:
@@ -959,6 +959,15 @@ Namely, the following statements are equivalent to the statement that A is inver
 \end{itemize}
 
 \section{Change of Basis}
+
+Motivation:
+
+Given a B-coordinate vector of an $\xx$ we wanna get a C-coordinate
+vector of the same $\xx$. How?
+
+\begin{theorem}
+    Let 
+\end{theorem}
 
 \chapter{Eigenvalues and Eigenvectors}
 \setcounter{theorem}{0}
@@ -991,11 +1000,13 @@ It consists of the zero vector and the all eigenvectors.
 \section{The Characteristic Equation}
 
 The problem of finding eigenvalues of $A$ is equivalent to finding all $\lambda$
-such that $(A - \lambda \xx) = \0$ is NOT invertible.
+such that the matrix $A - \lambda I$ is NOT invertible.
 
 This happens precisely when the determinant is zero.
 
-Hence, this equation gives the eigenvalues of A: \[\det (A - \lambda \xx) = 0\]
+Hence, this equation gives the eigenvalues of A: \[\det (A - \lambda I) = 0\]
 
 Now there's more stuff to add to... ill finish this later
+
+
 \end{document}
