@@ -963,11 +963,36 @@ Namely, the following statements are equivalent to the statement that A is inver
 Motivation:
 
 Given a B-coordinate vector of an $\xx$ we wanna get a C-coordinate
-vector of the same $\xx$. How?
+vector of the same $\xx$. How?\\
+
+This may look scary but its not - there's simply a matrix, and if you left multiply
+a B-coordinate by it, the result will be the C-coordinate. Hence, \textbf{change-of-coordinate matrix from $\BB$ to $\CC$}
 
 \begin{theorem}
-    Let 
+    Let $\BB = \{\bb_1, \ldots, \bb_n\}, \CC = \{\cc_1, \ldots, \cc_n\}$ be
+    bases of $V$. Then there is a unique matrix $\pbc$ such that \[
+    \cC = \pbc \cB
+    \]
+    The columns of the $\pbc$ are the $\CC$-coordinate vectors in the basis $\BB$. Or:\[
+    \pbc = \begin{bmatrix}
+        \xC{\bb_1} & \ldots & \xC{\bb_n}
+    \end{bmatrix}
+    \]
 \end{theorem}
+
+Again, this looks scary but you can just use the equation.\\
+
+The columns of this matrix are linearly independent. It must be invertible then.
+So:
+\[
+    \begin{array}{rlr}
+        \cC &= \pbc \cB \\
+        (\pbc)^{-1} \cC &= \cB
+    \end{array}
+\]
+
+As a result, $(\pbc)^{-1}$ changes a $\CC$-coordinate to a $\BB$-coordinate,
+hence $(\pbc)^{-1} = \pcb$. Follow the arrows and you won't be confused.
 
 \chapter{Eigenvalues and Eigenvectors}
 \setcounter{theorem}{0}
